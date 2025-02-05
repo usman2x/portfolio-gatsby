@@ -16,6 +16,8 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-image`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -23,8 +25,14 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `content`,  // New: Source for Markdown content
+        path: `${__dirname}/src/content`, // Updated path
+      },
+    },
+    `gatsby-transformer-remark`, // New: Transformer for Markdown processing
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
