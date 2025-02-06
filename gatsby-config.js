@@ -1,12 +1,3 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
- */
-
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -22,17 +13,32 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/cust-images/`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `content`,  // New: Source for Markdown content
-        path: `${__dirname}/src/content`, // Updated path
+        name: `content`,
+        path: `${__dirname}/src/content/blog/`,
       },
     },
-    `gatsby-transformer-remark`, // New: Transformer for Markdown processing
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `content`,
+        path: `${__dirname}/src/content/experience/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `content`,
+        path: `${__dirname}/src/content/misc/`,
+      },
+    },
+    `gatsby-transformer-remark`,
+    `gatsby-transformer-json`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -44,7 +50,7 @@ module.exports = {
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/cust-images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
   ],

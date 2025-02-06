@@ -2,70 +2,83 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <section id="contact" className="container py-12">
-      <h2 className="text-3xl font-bold text-center mb-6">Contact Me</h2>
+    <section id="contact" className="container py-5">
+      <h2 className="text-center mb-4">Contact Me</h2>
       
-      <div className="flex flex-col md:flex-row md:justify-between">
+      <div className="row justify-content-center">
         {/* Contact Form */}
-        <form className="bg-white shadow-md rounded-lg p-6 w-full md:w-2/3">
-          <label className="block mb-4">
-            <span className="text-gray-700">Name</span>
-            <input
-              type="text"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 focus:ring focus:ring-blue-200"
-              placeholder="Your Name"
-              required
-            />
-          </label>
+        <div className="col-md-8">
+          <div className="card shadow-sm p-4">
+            <form action="https://formsubmit.co/6551e8a48e219af93478c4fd931e9449" method="POST">
+              {/* Name */}
+              <div className="mb-3">
+                <label className="form-label">Name</label>
+                <input 
+                  type="text" 
+                  name="name" 
+                  className="form-control" 
+                  placeholder="Enter your name" 
+                  required 
+                />
+              </div>
 
-          <label className="block mb-4">
-            <span className="text-gray-700">Email</span>
-            <input
-              type="email"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 focus:ring focus:ring-blue-200"
-              placeholder="Your Email"
-              required
-            />
-          </label>
+              {/* Email */}
+              <div className="mb-3">
+                <label className="form-label">Email</label>
+                <input 
+                  type="email" 
+                  name="email" 
+                  className="form-control" 
+                  placeholder="Enter your email" 
+                  required 
+                />
+              </div>
 
-          <label className="block mb-4">
-            <span className="text-gray-700">Message</span>
-            <textarea
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 focus:ring focus:ring-blue-200"
-              rows="4"
-              placeholder="Your Message"
-              required
-            ></textarea>
-          </label>
+              {/* Message */}
+              <div className="mb-3">
+                <label className="form-label">Message</label>
+                <textarea 
+                  name="message" 
+                  className="form-control" 
+                  rows="4" 
+                  placeholder="Write your message..." 
+                  required
+                ></textarea>
+              </div>
 
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white font-bold py-2 rounded-md hover:bg-blue-700 transition"
-          >
-            Send Message
-          </button>
-        </form>
+              {/* Hidden Input for Redirect */}
+              <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you" />
 
-        {/* Contact Info & Social Links */}
-        <div className="mt-8 md:mt-0 md:w-1/3 flex flex-col items-center md:items-start">
-          <p className="text-gray-700 text-lg font-semibold">Email:</p>
-          <a href="mailto:your.email@example.com" className="text-blue-600 hover:underline">
-            your.email@example.com
-          </a>
+              {/* Submit Button */}
+              <button type="submit" className="btn btn-primary w-100">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
 
-          <p className="text-gray-700 text-lg font-semibold mt-4">Phone:</p>
-          <p className="text-gray-600">+123 456 7890</p>
-
-          <p className="text-gray-700 text-lg font-semibold mt-4">Follow Me:</p>
-          <div className="flex gap-4 mt-2">
-            <a href="https://github.com/yourgithub" target="_blank" rel="noopener noreferrer">
-              <img src="/icons/github.svg" alt="GitHub" className="w-8" />
+      {/* Contact Info */}
+      <div className="row text-center mt-5">
+        <div className="col-md-4">
+          <h5>Email</h5>
+          <a href="mailto:hafizusman@gmail.com" className="text-decoration-none">hafizusman@gmail.com</a>
+        </div>
+        <div className="col-md-4">
+          <h5>Phone</h5>
+          <p>+123 456 7890</p>
+        </div>
+        <div className="col-md-4">
+          <h5>Follow Me</h5>
+          <div className="d-flex justify-content-center gap-3">
+            <a href="https://github.com/yourgithub" target="_blank">
+              <img src="/icons/github.svg" alt="GitHub" width="30" />
             </a>
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
-              <img src="/icons/linkedin.svg" alt="LinkedIn" className="w-8" />
+            <a href="https://linkedin.com/in/yourprofile" target="_blank">
+              <img src="/icons/linkedin.svg" alt="LinkedIn" width="30" />
             </a>
-            <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer">
-              <img src="/icons/twitter.svg" alt="Twitter" className="w-8" />
+            <a href="https://twitter.com/yourhandle" target="_blank">
+              <img src="/icons/twitter.svg" alt="Twitter" width="30" />
             </a>
           </div>
         </div>
