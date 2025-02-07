@@ -1,0 +1,9 @@
+[
+    { "name": "JavaScript", "icon": "⚡" },
+    { "name": "React", "icon": "⚛️" },
+    { "name": "Gatsby", "icon": "🚀" },
+    { "name": "Node.js", "icon": "🌱" },
+    { "name": "GraphQL", "icon": "🔍" },
+    { "name": "CSS", "icon": "🎨" },
+    { "name": "CSS3", "icon": "🎨" }
+  ]

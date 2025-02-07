@@ -1,0 +1,13 @@
+{
+    "profileImage": "/images/usman.jpg",
+    "description" : "Experienced software engineer with 8+ years of expertise in designing and delivering scalable, high-performing applications for industries like financial services, Big Data, e-commerce, healthcare and retail services. Proficient in using technologies like Java, Spring Boot, ReactJS, SQL, Docker, Kafka, and cloud services. Driven by solving complex challenges and delivering customer-centric solutions. ",
+    "bio": [
+      "Expert in PCI-compliant payment processing, microservices architecture, and embedded finance APIs, optimizing financial services integration, scalability, and user experience.",
+      "Skilled in building scalable event processing systems, cloud migration, and Test-Driven Development (TDD), ensuring seamless integration, high code quality, and rapid project delivery.",
+      "Developed, optimized & deployed Big Data pipelines using Spark and Apache Beam and airflow.",
+      "Implemented efficient processes and documentation frameworks, improving knowledge sharing and team productivity.",
+      "Assembled and mentored cross-functional technical teams to ensure high performance and adaptability."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/sample-video"
+}
+  
