@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
-import "../styles/about.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // TODO Update without mentioning the hardcoded value usman.jpg
@@ -57,7 +56,7 @@ const About = () => {
         <div className="mt-4 text-center">
           <iframe
             className="about-video"
-            src={videoUrl}
+            src="https://drive.google.com/file/d/1LeQKBFlFcEvMIpWxnfQwY8s8bMRbfVY7/preview"
             title="Intro Video"
             allowFullScreen
           ></iframe>

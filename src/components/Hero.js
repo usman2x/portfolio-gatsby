@@ -1,7 +1,6 @@
 import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import heroData from "../content/misc/hero.json"; // Import JSON data
-//import "../styles/hero.css";
 
 const Hero = () => {
   // Destructure data from the JSON file
@@ -20,8 +19,8 @@ const Hero = () => {
         <h2>{subtitle}</h2>
         <p>{description}</p>
         <div className="hero-buttons">
-          <a href={resumeLink} className="button">Download Resume</a>
-          <a href={hireMeLink} className="button">Hire Me</a>
+          <a href={resumeLink} className="btn btn-custom btn-lg me-3">Download Resume</a>
+          <a href={hireMeLink} className="btn btn-custom btn-lg me-3">Hire Me</a>
         </div>
       </div>
     </section>

@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "gatsby";
-import "../styles/header.css";
 
 const Header = () => {
   return (
     <header className="header">
       <div className="container">
+      <a href="/" className="logo-link">
         <h1 className="logo">My Portfolio</h1>
+      </a>
         <nav>
           <ul>
             <li><Link to="/#about">About</Link></li>

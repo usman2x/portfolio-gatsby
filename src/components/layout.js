@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import "../styles/layout.css"; // Ensure this file exists
 
 const Layout = ({ children }) => {
   return (
