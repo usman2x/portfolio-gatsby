@@ -56,7 +56,7 @@ const About = () => {
         <div className="mt-4 text-center">
           <iframe
             className="about-video"
-            src="https://drive.google.com/file/d/1LeQKBFlFcEvMIpWxnfQwY8s8bMRbfVY7/preview"
+            src={videoUrl}
             title="Intro Video"
             allowFullScreen
           ></iframe>
