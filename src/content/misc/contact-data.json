@@ -1,22 +1,22 @@
 {
     "email": {
       "value": "hafizusman313@hotmail.com",
-      "icon": "/images/envelope.svg"
+      "icon": "../images/envelope.svg"
     },
     "phone": {
       "value": "+923217995855",
-      "icon": "/images/telephone.svg"
+      "icon": "../images/telephone.svg"
     },
     "socialLinks": [
       {
         "name": "GitHub",
         "url": "https://github.com/usman2x",
-        "icon": "/images/github.svg"
+        "icon": "../images/github.svg"
       },
       {
         "name": "LinkedIn",
         "url": "https://www.linkedin.com/in/usman313",
-        "icon": "/images/linkedin.svg"
+        "icon": "../images/linkedin.svg"
       }
     ]
   }
