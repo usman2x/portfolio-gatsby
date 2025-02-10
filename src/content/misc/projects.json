@@ -1,16 +1,16 @@
 [
+  {
+    "title": "Unified Data Platform (UDP)",
+    "description": "UDP (Unified Data Platform) provides a comprehensive solution for designing and deploying big data pipelines, along with additional features for efficient management. It abstracts infrastructure complexities, enabling UDP users to focus on their core tasks, such as creating ETL jobs and deploying them on managed Airflow. I was responsible for ensuring the timely delivery of sprint commitments without escalations, which included designing and implementing core backend features for an ETL data pipeline project, such as fault-tolerant APIs, Notebook APIs, and Airflow integration to provide deep insights into job and pipeline execution within orchestration platforms, while resolving critical production issues within strict SLAs. I automated testing for complex end-to-end ETL use cases, significantly reducing manual effort, and ensured code quality by integrating SonarQube into CI/CD pipelines, eliminating P1 issues, mitigating security vulnerabilities, and increasing code coverage from 10% to 80% while minimizing OWASP vulnerabilities across multiple repositories.",
+    "image": "/images/udp.jpg",
+    "link": "https://www.linkedin.com/in/usman313/details/projects",
+    "tags": ["Java", "Spring Boot", "Apache Kafka", "React"]
+  },
     {
       "title": "Data Landscape Scanner",
       "description": "The Data Landscape Scanner project revolutionizes data discovery and governance by supporting over 40 technologies, including Oracle, Snowflake, AWS Glue, and Tableau. Built on Java with Akka Streams, it enables efficient data stream processing and customization through user-defined queries. My contributions include mitigating SQL Injection vulnerabilities, enhancing connectors, and implementing tag discovery for database objects, ensuring robust data organization and classification. Additionally, I optimized scanners for Azure Synapse, Databricks, and Snowflake, while building connectors for dbt, Kafka, and PowerBI, enabling seamless data cataloguing and lineage across platforms.",
-      "image": "../images/hero-bg.jpg",
+      "image": "/images/dls.jpg",
       "link": "https://www.linkedin.com/in/usman313/details/projects",
       "tags": ["Java", "React"]
-    },
-    {
-      "title": "Unified Data Platform (UDP)",
-      "description": "TThe Unified Data Platform (UDP) simplifies big data pipeline design and deployment by abstracting infrastructure complexities, allowing users to focus on core tasks. As a team lead, I ensured timely sprint deliveries, automated features to cut manual testing time, and boosted code coverage from 10% to 80%. Additionally, I optimized code to reduce OWASP vulnerabilities, developed a UI dashboard, and onboarded new team members while independently driving feature development and bug fixes.",
-      "image": "../images/hero-bg.jpg",
-      "link": "https://www.linkedin.com/in/usman313/details/projects",
-      "tags": ["Java", "Spring Boot", "Apache Kafka", "React"]
     }
 ]
