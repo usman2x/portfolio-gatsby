@@ -1,10 +1,11 @@
 import React from "react";
+import contactData from "../content/misc/contact-data.json";
 
 const ContactForm = () => {
   return (
     <div className="col-md-8">
       <div className="card shadow-sm p-4">
-        <form action="https://formsubmit.co/6551e8a48e219af93478c4fd931e9449" method="POST">
+        <form action={contactData["form-link"]} method="POST">
           {/* Name */}
           <div className="mb-3">
             <label className="form-label">Name</label>
@@ -39,7 +40,7 @@ const ContactForm = () => {
             ></textarea>
           </div>
           {/* Hidden Input for Redirect */}
-          <input type="hidden" name="_next" value="http://localhost:8000/thank-you" />
+          <input type="hidden" name="_next" value={contactData["redirect-page"]} />
           {/* Submit Button */}
           <button type="submit" className="btn btn-primary w-100">
             Send Message
