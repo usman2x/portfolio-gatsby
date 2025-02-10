@@ -161,7 +161,7 @@ nav {
   position: relative;
   width: 100%;
   padding: 4rem 1rem;
-  background-image: url('/images/hero-bg.jpg');
+  background-image: url('../../static/images/hero-bg.jpg');
   background-size: cover; 
   background-position: center;
   background-repeat: no-repeat;

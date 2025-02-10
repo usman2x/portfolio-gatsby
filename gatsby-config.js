@@ -13,13 +13,6 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/cust-images/`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
         name: `content`,
         path: `${__dirname}/src/content/blog/`,
       },
@@ -51,7 +44,7 @@ module.exports = {
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/cust-images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `static/images/portfolio.png`, // This path is relative to the root of the site.
       },
     },
   ],

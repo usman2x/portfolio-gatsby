@@ -1,9 +1,9 @@
 [
-    { "name": "Java", "icon": "../images/java.svg" },
-    { "name": "Spring Boot", "icon": "../images/spring-boot.svg" },
-    { "name": "Spring Cloud", "icon": "../images/spring-boot.svg" },
-    { "name": "Javascript", "icon": "../images/javascript.svg" },
-    { "name": "ReactJS", "icon": "../images/react.svg" },
-    { "name": "SQL", "icon": "../images/sql.svg" },
-    { "name": "Apache Kafka", "icon": "../images/kafka.svg" }
+    { "name": "Java", "icon": "images/java.svg" },
+    { "name": "Spring Boot", "icon": "images/spring-boot.svg" },
+    { "name": "Spring Cloud", "icon": "images/spring-boot.svg" },
+    { "name": "Javascript", "icon": "images/javascript.svg" },
+    { "name": "ReactJS", "icon": "images/react.svg" },
+    { "name": "SQL", "icon": "images/sql.svg" },
+    { "name": "Apache Kafka", "icon": "images/kafka.svg" }
   ]

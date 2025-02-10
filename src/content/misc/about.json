@@ -1,5 +1,5 @@
 {
-    "profileImage": "/images/usman.jpg",
+    "profileImage": "images/usman.jpg",
     "description" : "Experienced software engineer with 8+ years of expertise in designing and delivering scalable, high-performing applications for industries like financial services, Big Data, e-commerce, healthcare and retail services. Proficient in using technologies like Java, Spring Boot, ReactJS, SQL, Docker, Kafka, and cloud services. Driven by solving complex challenges and delivering customer-centric solutions. ",
     "bio": [
       "Expert in PCI-compliant payment processing, microservices architecture, and embedded finance APIs, optimizing financial services integration, scalability, and user experience.",
