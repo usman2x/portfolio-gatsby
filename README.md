@@ -1,16 +1,4 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
-
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
-
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+**Live Demo:** You can view the deployed version of this portfolio [here](https://usman2x.github.io/portfolio-gatsby/).
 
 ## 🚀 Quick start
 
@@ -40,60 +28,69 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
     Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
-## 🚀 Quick start (Netlify)
 
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
+## Building a Gatsby Site for Production
 
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+To build your Gatsby site for production, follow these steps:
 
-## 🧐 What's inside?
+#### Steps:
+1. **Install Dependencies**: Ensure all dependencies are installed by running:
+   ```bash
+   npm install
+   ```
+   
+2. **Build the Site**: Use the `gatsby build` command to generate a production-ready version of your site:
+   ```bash
+   gatsby build
+   ```
+This command compiles and optimizes your site. Below are the complete steps executed when this command runs.
 
-A quick look at the top-level files and directories you'll see in a typical Gatsby project.
+  - Source Compilation: Gatsby collects data from various sources (e.g., Markdown files, CMSs, APIs) and processes them using GraphQL. It generates a unified data layer that plugins and pages can query.
+  
+  - Code Transpilation & Bundling: Gatsby uses Webpack under the hood to transpile modern JavaScript (ES6+, JSX, TypeScript) into browser-compatible code. This step also bundles assets like CSS, images, and other static resources for optimal delivery.
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package.json
-    └── README.md
+  - Page Generation: Based on the React components defined in `src/pages` or dynamically created via the `createPages` API, Gatsby generates static HTML files for each page route. These are fully rendered static pages optimized for fast loading.
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+  - Service Worker & Asset Optimization: Gatsby optimizes assets (e.g., image compression, lazy-loading) and generates a service worker file if `gatsby-plugin-offline` is used. This ensures Progressive Web App (PWA) capabilities such as offline support and caching strategies.
 
-1.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+  - Static Site Generation: The final static site is assembled in the `public/` folder, including all pre-rendered HTML files, bundled JavaScript, CSS, and media assets. This output is ready to be deployed to any static hosting provider.
 
-1.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+  - `public/`: The main output directory containing the production-ready static site with all generated HTML, JavaScript, CSS, and assets.
+  
+  - `cache/`: A temporary directory used by Gatsby during the build process to store intermediate build artifacts and improve subsequent build times.
 
-1.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+  - `.cache/`: Stores internal cache data that helps speed up rebuilds by avoiding redundant work (e.g., re-querying GraphQL).
 
-1.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/) for more detail).
+  - `chunk-map.json`: Contains mappings of webpack chunks for efficient asset loading.
 
-1.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
 
-1.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+3. **Serve Locally (Optional)**: To test the production build locally before deployment, run:
+   ```bash
+   gatsby serve
+   ```
+   - This serves the built site on `http://localhost:9000`, allowing you to verify that everything works as expected.
 
-1.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
 
-1.  **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+## Building a Gatsby Site for Production using pathPrefix
 
-1.  **`README.md`**: A text file containing useful reference information about your project.
+When deploying a Gatsby site to GitHub Pages or any other platform where the site is hosted under a subdirectory (e.g., `https://<username>.github.io/<repository-name>`), it’s crucial to use the `--prefix-paths` flag during the build process. Here's why:
 
-## 🎓 Learning Gatsby
+1. **Path Prefix Configuration**:
+   - If your site is hosted under a subdirectory (like `/repository-name`), all asset paths (CSS, JS, images) and internal links need to include this prefix.
+   - Without the `pathPrefix` configuration in `gatsby-config.js` and the `--prefix-paths` flag, Gatsby assumes the site is hosted at the root level (e.g., `https://example.com`).
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
+2. **Broken Links and Assets**:
+   - If you test your site locally without the `--prefix-paths` flag, Gatsby generates paths assuming the root domain. For example, an image might have a path like `/static/image.png`.
+   - When deployed to GitHub Pages under a subdirectory (e.g., `/repository-name`), the browser looks for `/static/image.png` but fails because the correct path should be `/repository-name/static/image.png`.
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/docs/tutorial/getting-started/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+3. **Testing Locally with Path Prefix**:
+   - To avoid broken links and assets, always test your site locally with the `--prefix-paths` flag:
+     ```bash
+     gatsby build --prefix-paths
+     gatsby serve
+     ```
+   - This ensures that all paths include the prefix specified in `gatsby-config.js` (e.g., `pathPrefix: "/repository-name"`).
 
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+4. **Consistency Between Local and Production**:
+   - Testing with `--prefix-paths` ensures that your local environment mirrors the production environment, reducing the risk of issues like broken images or incorrect links after deployment.
 
-## 💫 Deploy
-
-[Build, Deploy, and Host On Netlify](https://netlify.com)
-
-The fastest way to combine your favorite tools and APIs to build the fastest sites, stores, and apps for the web. And also the best place to build, deploy, and host your Gatsby sites.
-
-<!-- AUTO-GENERATED-CONTENT:END -->
