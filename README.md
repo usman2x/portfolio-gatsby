@@ -94,3 +94,41 @@ When deploying a Gatsby site to GitHub Pages or any other platform where the sit
 4. **Consistency Between Local and Production**:
    - Testing with `--prefix-paths` ensures that your local environment mirrors the production environment, reducing the risk of issues like broken images or incorrect links after deployment.
 
+## Directory layout for gatsby-portfolio
+
+Here's a well-structured directory layout for Gatsby portfolio website, along with a description of each folder and file:  
+
+```
+/gatsby-portfolio/        # Root directory of your Gatsby portfolio project
+│── /src/                 # Source directory containing core project files
+│   ├── /components/      # Reusable React components (Navbar, Footer, Hero, etc.)
+│   ├── /content/         # Configurable content (JSON & Markdown files)
+│   │   ├── /blog/        # Markdown files for blog posts
+│   │   ├── /experience/  # Markdown files for experience details
+│   │   ├── /misc/        # Other structured content (about, skills, etc.)
+│   ├── /pages/           # Individual page components (Index, About, Projects, etc.)
+│   ├── /styles/          # CSS styles (global.css, component-specific styles)
+│── /static/              # Static assets (served as-is, no processing by Webpack)
+│   ├── /images/          # Store all images (for projects, avatar, etc.)
+│   ├── cv.pdf            # Resume file for download
+│── gatsby-config.js      # Gatsby configuration file (plugins, metadata, sources)
+│── package.json          # Project metadata, dependencies, scripts
+│── gatsby-node.js        # Customizations for Gatsby's data layer (if needed)
+│── gatsby-browser.js     # Browser-side Gatsby APIs (global styles, animations)
+│── gatsby-ssr.js         # Server-side rendering configurations (if needed)
+│── README.md             # Documentation for project setup and structure
+```
+
+### Explanation of Key Files  
+
+- **gatsby-config.js**  
+  - This file configures Gatsby’s core settings, plugins, and data sources.  
+  - Defines site metadata (title, description, author).  
+  - Specifies file system sources (`gatsby-source-filesystem`) for Markdown and images.  
+  - Includes image optimization (`gatsby-plugin-image`, `gatsby-transformer-sharp`).  
+
+- **package.json**  
+  - Contains project dependencies (`react`, `gatsby`, `graphql`).  
+  - Defines scripts for development (`gatsby develop`), build (`gatsby build`), and deployment.  
+
+
