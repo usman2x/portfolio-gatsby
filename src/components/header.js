@@ -25,11 +25,7 @@ const Header = () => {
             <li><Link to="/experience">Experience</Link></li>
             <li><Link to="/#projects">Projects</Link></li>
             <li><Link to="/#contact">Contact Me</Link></li>
-            <li><Link to="/blog" style={{
-              color: '#ccc', // Grayed-out color
-              pointerEvents: 'none', // Disables click events
-              cursor: 'default', // Changes cursor to default
-            }}>Blog (Coming Soon)</Link></li>
+            <li><Link to="/blog">Blog</Link></li>
           </ul>
         </nav>
       </div>
