@@ -1,7 +1,7 @@
 {
-    "path-prefix": "/portfolio-gatsby",
+    "path-prefix": "/",
     "form-link": "https://formsubmit.co/6551e8a48e219af93478c4fd931e9449",
-    "redirect-page": "https://usman2x.github.io/portfolio-gatsby/thank-you",
+    "redirect-page": "https://www.musman.online/thank-you",
     "email": {
       "value": "hafizusman313@hotmail.com",
       "icon": "images/envelope.svg"

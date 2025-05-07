@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="container">
-        <a href="/portfolio-gatsby" className="logo-link">
+        <a href="/" className="logo-link">
           <h1 className="logo">My Portfolio</h1>
         </a>
         <nav>
