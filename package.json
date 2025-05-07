@@ -31,7 +31,6 @@
   ],
   "license": "0BSD",
   "scripts": {
-    "predeploy": "echo 'musman.online' > public/CNAME",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "deploy": "gatsby build && gh-pages -d public",
