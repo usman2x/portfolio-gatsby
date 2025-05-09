@@ -2,10 +2,13 @@ import React from "react";
 import contactData from "../content/misc/contact-data.json";
 
 const ContactForm = () => {
+  const formLink = process.env.GATSBY_FORM_LINK;
+  const redirectPage = new URL(contactData["redirect-page"], process.env.GATSBY_SITE_URL).href;
+
   return (
     <div className="col-md-8">
       <div className="card shadow-sm p-4">
-        <form action={contactData["form-link"]} method="POST">
+        <form action={formLink} method="POST">
           {/* Name */}
           <div className="mb-3">
             <label className="form-label">Name</label>
@@ -40,7 +43,7 @@ const ContactForm = () => {
             ></textarea>
           </div>
           {/* Hidden Input for Redirect */}
-          <input type="hidden" name="_next" value={contactData["redirect-page"]} />
+          <input type="hidden" name="_next" value={redirectPage} />
           {/* Submit Button */}
           <button type="submit" className="btn btn-primary w-100">
             Send Message

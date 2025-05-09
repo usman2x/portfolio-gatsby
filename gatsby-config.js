@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 module.exports = {
   pathPrefix: "/",
   siteMetadata: {
@@ -7,6 +9,15 @@ module.exports = {
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GA_TRACKING_ID || "default-tracking-id", // Use environment variable
+        head: true,
+        anonymize: true,
+        respectDNT: true,
+      },
+    },
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
