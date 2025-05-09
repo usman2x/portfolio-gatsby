@@ -32,6 +32,8 @@ jobs:
         run: npm run build
         env:
           GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
+          GATSBY_FORM_LINK: ${{ secrets.GATSBY_FORM_LINK }}
+          GATSBY_SITE_URL: ${{ secrets.GATSBY_SITE_URL }}
 
 
       # Step 5: Deploy to GitHub Pages
