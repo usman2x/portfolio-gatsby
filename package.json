@@ -1,18 +1,22 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "muhammad-usman-portfolio",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "version": "1.0.0",
+  "description": "Personal portfolio of Muhammad - Full-Stack Developer with 8+ years of experience. Specializing in scalable software engineering for clients worldwide, including Fortune 100 companies.",
+  "author": "Muhammad Usman",
   "dependencies": {
     "@tailwindcss/postcss": "^4.0.3",
     "autoprefixer": "^10.4.20",
     "bootstrap": "^5.3.3",
     "gatsby": "^5.14.1",
     "gatsby-plugin-google-analytics": "^5.14.0",
+    "gatsby-plugin-google-gtag": "^5.14.0",
     "gatsby-plugin-image": "^3.14.0",
     "gatsby-plugin-manifest": "^5.14.0",
+    "gatsby-plugin-react-helmet": "^6.14.0",
+    "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sharp": "^5.14.0",
+    "gatsby-plugin-sitemap": "^6.14.0",
     "gatsby-source-filesystem": "^5.14.0",
     "gatsby-transformer-json": "^5.14.0",
     "gatsby-transformer-remark": "^6.14.0",
@@ -21,6 +25,7 @@
     "postcss": "^8.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "tailwindcss": "^4.0.3"
   },
   "devDependencies": {
@@ -28,7 +33,13 @@
     "prettier": "^2.8.8"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "portfolio",
+    "full-stack",
+    "software engineer",
+    "react",
+    "tailwind",
+    "web development"
   ],
   "license": "0BSD",
   "scripts": {
@@ -43,9 +54,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/usman2x/portfolio-gatsby"
   }
 }

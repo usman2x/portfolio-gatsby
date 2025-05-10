@@ -2,12 +2,18 @@ import React from "react";
 import Layout from "../components/Layout";
 import { graphql, Link } from "gatsby";
 import { format } from "date-fns";
+import SEO from "../components/seo"; // Import the SEO component
 
 const BlogPage = ({ data }) => {
   const posts = data.allMarkdownRemark.nodes;
 
   return (
     <Layout>
+      <SEO
+        title="All Articles"
+        description="Explore my latest articles and insights on software engineering, technology, and more."
+        pathname="/blog" // Canonical URL path for this page
+      />
       <h2 className="text-3xl font-bold mb-6">All Articles</h2>
       {posts.map((post) => {
         const { title, slug, date } = post.frontmatter;

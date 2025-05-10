@@ -5,9 +5,12 @@
       "HTML5",
       "CSS3",
       "JavaScript",
-      "React",
       "Tailwind CSS",
-      "Bootstrap"
+      "Bootstrap",
+      "ReactJS",
+      "Next.js",
+      "Gatsby",
+      "TypeScript"
     ]
   },
   {
@@ -15,20 +18,24 @@
     "technologies": [
       "Java",
       "Spring Boot",
-      "Spring Cloud",
       "Kotlin",
+      "ktor",
       "Python",
       "Kafka",
-      "Microservices"
+      "Microservices",
+      "GraphQL",
+      "WebSockets",
+      "RabbitMQ"
     ]
   },
   {
     "name": "Database",
     "technologies": [
       "MySQL",
+      "Oracle",
+      "MSSQL",
       "PostgreSQL",
-      "SQLite",
-      "Snowflake"
+      "SQLite"
     ]
   },
   {
@@ -37,6 +44,18 @@
       "Android",
       "Compose",
       "Kotlin"
+    ]
+  },
+  {
+    "name": "Big Data",
+    "technologies": [
+      "Apache Beam",
+      "Spark",
+      "Snowflake",
+      "Databricks",
+      "Azure Data Factory",
+      "dbt",
+      "Azure Synapse"
     ]
   }
 ]

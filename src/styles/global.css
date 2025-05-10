@@ -174,14 +174,27 @@ nav {
 }
 
 .hero h1 {
+  background-color: #ff6f61;
+  border-radius: 10px;
   font-size: 2.5rem;
   margin-top: 1rem;
+  display: inline-block; 
+  text-align: center;
+  padding: 5px;
+}
+
+.hero h2 {
+  background-color: #ff6f61;
+  border-radius: 10px;
+  font-size: 2.5rem;
+  display: inline-block; 
+  text-align: center;
+  padding: 4px;
 }
 
 .hero p {
-  font-size: 1.4rem;
-  color: white;
-  margin-top: 0.8rem;
+  font-size: 1.8rem;
+  color: rgb(247, 243, 243);
 }
 
 .hero .cta {
@@ -398,15 +411,9 @@ footer,
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.bio-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
 .bio-title {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #333;
   margin-bottom: 15px;
   border-bottom: 1px solid #eaeaea;
   padding-bottom: 10px;
@@ -423,14 +430,13 @@ footer,
   padding-left: 25px;
   margin-bottom: 10px;
   line-height: 1.6;
-  color: #4a5568;
 }
 
 .bio-item:last-child {
   margin-bottom: 0;
 }
 
-.bio-item::before {
+/* .bio-item::before {
   content: '';
   position: absolute;
   left: 0;
@@ -439,7 +445,7 @@ footer,
   height: 10px;
   border-radius: 50%;
   background: linear-gradient(135deg, #4a6bff, #2ed1ff);
-}
+} */
 
 /* Video Container */
 .video-container {
@@ -493,4 +499,14 @@ footer,
 
 .section-title:hover::after {
   animation: gentle-pulse 2s infinite;
+}
+
+/* Add this to your global CSS file or styled-components */
+.text-blue-600 {
+  margin: 2px;
+  color: #3b82f6; /* Blue color for tags */
+}
+
+.text-blue-600:hover {
+  text-decoration: underline;
 }

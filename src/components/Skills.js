@@ -33,7 +33,7 @@ const Skills = () => {
       "Back-end Development": <Server size={32} />,
       "DevOps": <Cloud size={32} />,
       "Testing": <Microscope size={32} />,
-      "Data Science": <LineChart size={32} />,
+      "Big Data": <LineChart size={32} />,
       "Machine Learning": <Cpu size={32} />,
       "Blockchain": <Globe size={32} />,
       "SEO": <Search size={32} />,
