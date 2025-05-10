@@ -41,4 +41,9 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          cname: ${{ secrets.GATSBY_SITE_URL }}
+          cname: musman.online
+        
+      - name: Debug CNAME File
+        run: |
+            echo "Contents of gh-pages branch after deployment:"
+            ls -R ./public
