@@ -35,12 +35,10 @@ jobs:
           GATSBY_FORM_LINK: ${{ vars.GATSBY_FORM_LINK }}
           GATSBY_SITE_URL: ${{ vars.GATSBY_SITE_URL }}
 
-      - name: Add CNAME file
-        run: echo "${{ secrets.GATSBY_SITE_URL }}" > ./public/CNAME
-
       # Step 5: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+          cname: ${{ secrets.GATSBY_SITE_URL }}
