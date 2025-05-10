@@ -35,6 +35,8 @@ jobs:
           GATSBY_FORM_LINK: ${{ vars.GATSBY_FORM_LINK }}
           GATSBY_SITE_URL: ${{ vars.GATSBY_SITE_URL }}
 
+      - name: Add CNAME file
+        run: echo "${{ secrets.GATSBY_SITE_URL }}" > ./public/CNAME
 
       # Step 5: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
@@ -42,4 +44,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          cname: ${{ vars.GATSBY_SITE_URL }}
