@@ -15,11 +15,13 @@ const IndexPage = () => {
         description="I help teams design and ship reliable full-stack, data, and AI-enabled software with measurable business outcomes."
         pathname="/"
       />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
+      <div className="home-page">
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
+      </div>
     </Layout>
   );
 };

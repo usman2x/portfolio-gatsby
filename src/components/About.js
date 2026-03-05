@@ -17,18 +17,18 @@ const About = () => {
   const profileImage = getImage(data.file);
 
   return (
-    <section id="about" className="container py-5">
-      <h2 className="text-center fw-bold mb-5 section-title">About Me</h2>
+    <section id="about" className="container section-shell about-section">
+      <h2 className="section-title">About Me</h2>
       
-      <div className="row align-items-start">
-        <div className="col-md-3 mb-4 mb-md-0 text-center">
+      <div className="row align-items-start about-grid">
+        <div className="col-md-3 mb-4 mb-md-0 text-center about-profile-col">
           <div className="profile-image-container">
             <GatsbyImage image={profileImage} alt="Muhammad Usman profile" className="profile-image" />
           </div>
         </div>
         
-        <div className="col-md-9">
-          <p className="lead mb-4">{description}</p>
+        <div className="col-md-9 about-content-col">
+          <p className="about-intro">{description}</p>
           
           <div className="bio-card">
             <h3 className="bio-title">Achievements</h3>
@@ -42,8 +42,8 @@ const About = () => {
       </div>
 
       {videoUrl && (
-        <div className="mt-5">
-          <h3 className="text-center">Video Introduction</h3>
+        <div className="about-video-block">
+          <h3 className="about-video-title">Video Introduction</h3>
           <div className="video-container">
           
             <iframe

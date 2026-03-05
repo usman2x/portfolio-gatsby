@@ -49,10 +49,10 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="container py-5">
-      <h2 className="text-center mb-5 section-title">Skills & Technologies</h2>
-      <p className="text-center text-muted mt-4 small">Click on any skill to see related technologies</p>
-      <div className="row g-4 justify-content-center">
+    <section id="skills" className="container section-shell skills-section">
+      <h2 className="section-title">Skills & Technologies</h2>
+      <p className="section-subtitle skills-subtitle">Click on any skill to view related technologies.</p>
+      <div className="row g-4 justify-content-center skills-grid">
         {skills.map((skill, index) => (
           <div key={index} className="col-md-3 col-sm-4 col-6">
             <div 

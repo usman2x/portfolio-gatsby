@@ -4,15 +4,14 @@ import ContactInfo from "./ContactInfo.js";
 
 const Contact = () => {
   return (
-    <section id="contact" className="container py-5">
-      <h2 className="text-center mb-4 section-title">Contact Me</h2>
+    <section id="contact" className="container section-shell contact-section">
+      <h2 className="section-title">Contact Me</h2>
+      <p className="section-subtitle contact-subtitle">Share your project goals and timelines. I usually respond within 24 hours.</p>
 
-      <div className="row justify-content-center">
-        {/* Render Contact Form */}
+      <div className="row justify-content-center contact-layout">
         <ContactForm />
       </div>
 
-      {/* Render Contact Info */}
       <ContactInfo />
     </section>
   );

@@ -19,11 +19,11 @@ const Hero = () => {
         />
       </div>
       <div className="hero-overlay" />
-      <div className="container">
+      <div className="container hero-inner">
         <h1 className="hero-title">{title}</h1>
         <h2 className="hero-subtitle">{subtitle}</h2>
         <p className="hero-description">{description}</p>
-        <div className="cta">
+        <div className="hero-cta">
           <a href={resumeLink} className="btn btn-light btn-lg" target="_blank" rel="noopener noreferrer">
             Download Resume
           </a>

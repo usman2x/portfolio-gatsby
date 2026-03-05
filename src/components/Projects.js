@@ -24,9 +24,9 @@ const Projects = () => {
   );
 
   return (
-    <section id="projects" className="container py-5">
-      <h2 className="text-center mb-4 section-title">Projects</h2>
-      <div className="row">
+    <section id="projects" className="container section-shell projects-section">
+      <h2 className="section-title">Projects</h2>
+      <div className="row projects-grid">
         {projects.map((project, index) => (
           <div key={index} className="col-md-6 mb-4">
             <ProjectCard {...project} imageData={imageMap.get(project.image)} />
