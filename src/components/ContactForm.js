@@ -2,8 +2,9 @@ import React from "react";
 import contactData from "../content/misc/contact-data.json";
 
 const ContactForm = () => {
-  const formLink = process.env.GATSBY_FORM_LINK;
-  const redirectPage = new URL(contactData["redirect-page"], process.env.GATSBY_SITE_URL).href;
+  const formLink = process.env.GATSBY_FORM_LINK || "#";
+  const siteUrl = process.env.GATSBY_SITE_URL || "https://www.musman.online";
+  const redirectPage = new URL(contactData["redirect-page"], siteUrl).href;
 
   return (
     <div className="col-md-8">

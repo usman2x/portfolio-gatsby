@@ -2,6 +2,8 @@
 title: "The Digital Paradigm and AI: A Perspective"
 date: "May 10, 2025"
 slug: "digital-paradigm-ai"
+description: "A perspective on AI as productivity acceleration, changing skill models, and the future of work in the current digital paradigm."
+cover: "./images/digital-paradigm-ai/cover.png"
 tags: ["AI", "Digital Paradigm", "Technology", "Productivity"]
 ---
 

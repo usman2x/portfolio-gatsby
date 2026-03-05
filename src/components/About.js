@@ -1,38 +1,32 @@
 import React from "react";
 import aboutData from "../content/misc/about.json";
-import "bootstrap/dist/css/bootstrap.min.css";
-import profileImage from "../../static/images/usman.jpg"; // Direct import of the image
-import SEO from "./seo"; // Import SEO component
+import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const About = () => {
-  // Get data from imported JSON
   const { description, bio, videoUrl } = aboutData;
+  const data = useStaticQuery(graphql`
+    query AboutProfileImageQuery {
+      file(sourceInstanceName: { eq: "images" }, relativePath: { eq: "usman.jpg" }) {
+        childImageSharp {
+          gatsbyImageData(width: 260, height: 260, quality: 85, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+        }
+      }
+    }
+  `);
+  const profileImage = getImage(data.file);
 
   return (
-    <>
-      {/* Add SEO component */}
-      <SEO
-        title="About Me" // Page-specific title
-        description={description} // Use the description from the JSON file
-        pathname="/about" // Canonical URL path for this page
-      />
-
     <section id="about" className="container py-5">
       <h2 className="text-center fw-bold mb-5 section-title">About Me</h2>
       
       <div className="row align-items-start">
-        {/* Profile Image */}
         <div className="col-md-3 mb-4 mb-md-0 text-center">
           <div className="profile-image-container">
-            <img
-              src={profileImage}
-              alt="Profile"
-              className="profile-image"
-            />
+            <GatsbyImage image={profileImage} alt="Muhammad Usman profile" className="profile-image" />
           </div>
         </div>
         
-        {/* Bio Content */}
         <div className="col-md-9">
           <p className="lead mb-4">{description}</p>
           
@@ -47,7 +41,6 @@ const About = () => {
         </div>
       </div>
 
-      {/* Video Section */}
       {videoUrl && (
         <div className="mt-5">
           <h3 className="text-center">Video Introduction</h3>
@@ -65,7 +58,6 @@ const About = () => {
         </div>
       )}
     </section>
-    </>
   );
 };
 

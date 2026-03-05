@@ -7,6 +7,12 @@ module.exports = {
     description: "8+ years in software engineering with a full-stack mindset. Worked with clients across four continents, including Fortune 100 companies.",
     author: "Muhammad Usman",
     siteUrl: "https://www.musman.online",
+    giscus: {
+      repo: process.env.GATSBY_GISCUS_REPO || "",
+      repoId: process.env.GATSBY_GISCUS_REPO_ID || "",
+      category: process.env.GATSBY_GISCUS_CATEGORY || "General",
+      categoryId: process.env.GATSBY_GISCUS_CATEGORY_ID || "",
+    },
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -53,6 +59,13 @@ module.exports = {
       options: {
         name: `content`,
         path: `${__dirname}/src/content/misc/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images/`,
       },
     },
     `gatsby-transformer-remark`,

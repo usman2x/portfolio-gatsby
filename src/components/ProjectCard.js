@@ -1,9 +1,16 @@
 import React from "react";
+import { GatsbyImage } from "gatsby-plugin-image";
 
-const ProjectCard = ({ title, description, image, link, tags }) => {
+const ProjectCard = ({ title, description, image, imageData, link, tags }) => {
+  const fallbackImage = image.startsWith("/") ? image : `/images/${image}`;
+
   return (
     <div className="card shadow-sm">
-      <img src={image} alt={title} className="card-img-top" />
+      {imageData ? (
+        <GatsbyImage image={imageData} alt={title} className="card-img-top" />
+      ) : (
+        <img src={fallbackImage} alt={title} className="card-img-top" />
+      )}
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
         <p className="card-text">{description}</p>
@@ -23,4 +30,3 @@ const ProjectCard = ({ title, description, image, link, tags }) => {
 };
 
 export default ProjectCard;
-

@@ -2,6 +2,8 @@
 title: "Sometimes the Anxiety You Feel Isn’t About the Moment: It’s Your Younger Self Asking to Be Seen, Heard, and Healed"
 date: "April 16, 2025"
 slug: "hidden-anxiety-healing"
+description: "A reflective article on hidden anxiety, subconscious triggers, and mindful self-observation for emotional healing."
+cover: "./images/hidden-anxiety-healing/cover.png"
 tags: ["anxiety", "healing", "mental-health"]
 ---
 

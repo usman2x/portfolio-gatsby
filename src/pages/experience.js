@@ -7,9 +7,9 @@ const ExperiencePage = ({ data }) => {
 
   return (
     <Layout>
-      <h1 className="text-3xl font-bold mb-6">{frontmatter.title}</h1>
+      <h1 className="section-title">{frontmatter.title}</h1>
       <div
-        className="prose lg:prose-lg max-w-none"
+        className="prose"
         dangerouslySetInnerHTML={{ __html: html }}
       />
     </Layout>
@@ -28,4 +28,3 @@ export const query = graphql`
 `;
 
 export default ExperiencePage;
-

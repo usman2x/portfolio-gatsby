@@ -57,5 +57,15 @@
       "dbt",
       "Azure Synapse"
     ]
+  },
+  {
+    "name": "Agentic AI",
+    "technologies": [
+      "MCP",
+      "LangChain",
+      "RAG",
+      "OpenAI",
+      "Anthropic"
+    ]
   }
 ]

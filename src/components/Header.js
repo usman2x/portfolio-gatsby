@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "gatsby";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,24 +7,32 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className="header">
       <div className="container">
-        <a href="/" className="logo-link">
-          <h1 className="logo">My Portfolio</h1>
+        <a href="/" className="logo-link" onClick={closeMenu}>
+          <span className="logo">Muhammad Usman</span>
         </a>
         <nav>
-          {/* Hamburger Menu Button */}
-          <button className="menu-toggle" onClick={toggleMenu}>
+          <button
+            className="menu-toggle"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+            aria-controls="primary-navigation"
+          >
             ☰
           </button>
-          {/* Navigation Links */}
-          <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
-            <li><Link to="/#about" activeClassName="active">About</Link></li>
-            <li><Link to="/experience">Experience</Link></li>
-            <li><Link to="/#projects">Projects</Link></li>
-            <li><Link to="/#contact">Contact Me</Link></li>
-            <li><Link to="/blog">Blog</Link></li>
+          <ul id="primary-navigation" className={`nav-links ${isMenuOpen ? "active" : ""}`}>
+            <li><a href="/#about" onClick={closeMenu}>About</a></li>
+            <li><a href="/experience/" onClick={closeMenu}>Experience</a></li>
+            <li><a href="/#projects" onClick={closeMenu}>Projects</a></li>
+            <li><a href="/#contact" onClick={closeMenu}>Contact Me</a></li>
+            <li><a href="/blog/" onClick={closeMenu}>Blog</a></li>
           </ul>
         </nav>
       </div>

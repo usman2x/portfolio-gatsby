@@ -35,6 +35,7 @@ const Skills = () => {
       "Testing": <Microscope size={32} />,
       "Big Data": <LineChart size={32} />,
       "Machine Learning": <Cpu size={32} />,
+      "Agentic AI": <Cpu size={32} />,
       "Blockchain": <Globe size={32} />,
       "SEO": <Search size={32} />,
       "Content": <PenTool size={32} />,

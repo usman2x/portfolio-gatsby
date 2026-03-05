@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-const SEO = ({ title, description, meta, lang, pathname }) => {
+const SEO = ({ title, description, meta, lang, pathname, image, type }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -12,6 +12,7 @@ const SEO = ({ title, description, meta, lang, pathname }) => {
             title
             description
             siteUrl
+            author
           }
         }
       }
@@ -21,6 +22,8 @@ const SEO = ({ title, description, meta, lang, pathname }) => {
   const metaDescription = description || site.siteMetadata.description;
   const defaultTitle = site.siteMetadata.title;
   const canonicalUrl = `${site.siteMetadata.siteUrl}${pathname}`;
+
+  const resolvedImage = image || "";
 
   return (
     <Helmet
@@ -44,11 +47,23 @@ const SEO = ({ title, description, meta, lang, pathname }) => {
         },
         {
           property: "og:type",
-          content: "website",
+          content: type,
         },
+        ...(resolvedImage
+          ? [
+              {
+                property: "og:image",
+                content: resolvedImage,
+              },
+              {
+                name: "twitter:image",
+                content: resolvedImage,
+              },
+            ]
+          : []),
         {
           name: "twitter:card",
-          content: "summary",
+          content: resolvedImage ? "summary_large_image" : "summary",
         },
         {
           name: "twitter:creator",
@@ -78,6 +93,8 @@ SEO.defaultProps = {
   meta: [],
   description: "",
   pathname: "/",
+  image: "",
+  type: "website",
 };
 
 SEO.propTypes = {
@@ -86,6 +103,8 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   pathname: PropTypes.string,
+  image: PropTypes.string,
+  type: PropTypes.string,
 };
 
 export default SEO;

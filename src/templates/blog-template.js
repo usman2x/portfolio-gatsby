@@ -2,40 +2,78 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import { format } from "date-fns";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import SEO from "../components/seo"; // Import the SEO component
+import ShareActions from "../components/ShareActions";
+import GiscusComments from "../components/GiscusComments";
 
 const BlogTemplate = ({ data }) => {
-  const { markdownRemark } = data;
+  const { markdownRemark, site } = data;
   const { frontmatter, html } = markdownRemark;
-  const { title, date, description, tags, slug } = frontmatter;
+  const { title, date, description, tags, slug, cover } = frontmatter;
+  const coverImage = getImage(cover);
+  const postUrl = `${site.siteMetadata.siteUrl}/blog/${slug}`;
+  const ogImage = cover?.childImageSharp?.gatsbyImageData?.images?.fallback?.src
+    ? `${site.siteMetadata.siteUrl}${cover.childImageSharp.gatsbyImageData.images.fallback.src}`
+    : null;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    description: description || `A detailed article on ${title}`,
+    datePublished: new Date(date).toISOString(),
+    author: {
+      "@type": "Person",
+      name: site.siteMetadata.author,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": postUrl,
+    },
+    image: ogImage ? [ogImage] : undefined,
+  };
 
   return (
     <Layout>
       <SEO
-        title={title} // Use the post's title
-        description={description || "A detailed article on " + title} // Use the post's description or fallback
-        pathname={`/blog/${slug}`} // Canonical URL path for this post
+        title={title}
+        description={description || `A detailed article on ${title}`}
+        pathname={`/blog/${slug}`}
+        image={ogImage}
+        type="article"
       />
-      <Link to="/blog" className="bg-gray-100 px-3 py-1 rounded hover:bg-gray-200">
-        ← Back
-      </Link>
-      <article className="prose lg:prose-xl max-w-none">
-        <h1>{title}</h1>
-        <p className="text-sm text-gray-500 mb-4">
-          {format(new Date(date), "MMMM d, yyyy")}
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-        {tags && (
-          <div className="mt-4">
-            <strong>Tags:</strong>{" "}
-            {tags.map((tag, index) => (
-              <span key={index} className="mr-2 text-blue-600">
-                #{tag}
-              </span>
-            ))}
-          </div>
+      <section className="container blog-post-shell">
+        <Link to="/blog" className="btn btn-outline-primary btn-sm blog-post-back">
+          ← Back to articles
+        </Link>
+        <article className="blog-article">
+          {coverImage ? <GatsbyImage image={coverImage} alt={title} className="blog-cover-image" /> : null}
+          <header className="blog-post-header">
+            <h1>{title}</h1>
+            <p className="blog-post-meta">
+              <span>{format(new Date(date), "MMMM d, yyyy")}</span>
+              <span>•</span>
+              <span>{markdownRemark.timeToRead} min read</span>
+            </p>
+            <ShareActions title={title} pathname={`/blog/${slug}`} />
+          </header>
+          <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: html }} />
+          {tags && (
+            <div className="blog-post-tags">
+              {tags.map((tag, index) => (
+                <span key={index} className="tag-chip">
+                  #{tag}
+                </span>
+              ))}
+            </div>
           )}
-      </article>
+        </article>
+        <section className="comments-section">
+          <h3 className="mb-3">Comments</h3>
+          <GiscusComments slug={slug} />
+        </section>
+      </section>
+      <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
     </Layout>
   );
 };
@@ -44,10 +82,24 @@ export const query = graphql`
   query ($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
+      timeToRead
       frontmatter {
         title
         date
+        description
         tags
+        slug
+        cover {
+          childImageSharp {
+            gatsbyImageData(width: 1200, quality: 80, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+          }
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        siteUrl
+        author
       }
     }
   }
