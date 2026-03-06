@@ -9,7 +9,7 @@ const ExperiencePage = ({ data }) => {
     <Layout>
       <h1 className="section-title">{frontmatter.title}</h1>
       <div
-        className="prose"
+        className="article-prose prose prose-lg max-w-[680px] mx-auto"
         dangerouslySetInnerHTML={{ __html: html }}
       />
     </Layout>

@@ -9,7 +9,7 @@ const ContactInfo = () => {
           <h5>Email</h5>
           <div className="d-flex align-items-center justify-content-center gap-2 contact-info-row">
             <img src={contactData.email.icon} alt="Email Icon" width="24" />
-            <a href={`mailto:${contactData.email.value}`} className="text-decoration-none contact-info-link">
+            <a href={`mailto:${contactData.email.value}`} className="contact-info-link">
               {contactData.email.value}
             </a>
           </div>

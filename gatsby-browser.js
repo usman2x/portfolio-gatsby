@@ -8,3 +8,11 @@
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./src/styles/global.css";
+import { applyStoredTheme, setTheme } from "./src/utils/theme";
+
+export const onClientEntry = () => {
+  applyStoredTheme();
+  if (typeof window !== "undefined") {
+    window.setTheme = setTheme;
+  }
+};

@@ -41,7 +41,7 @@ const ContactForm = () => {
             ></textarea>
           </div>
           <input type="hidden" name="_next" value={redirectPage} />
-          <button type="submit" className="btn btn-primary w-100 contact-submit-btn">
+          <button type="submit" className="theme-btn-primary w-100 contact-submit-btn">
             Send Message
           </button>
         </form>

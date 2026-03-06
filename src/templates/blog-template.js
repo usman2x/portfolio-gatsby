@@ -43,7 +43,7 @@ const BlogTemplate = ({ data }) => {
         type="article"
       />
       <section className="container blog-post-shell">
-        <Link to="/blog" className="btn btn-outline-primary btn-sm blog-post-back">
+        <Link to="/blog" className="theme-btn-outline theme-btn-sm blog-post-back">
           ← Back to articles
         </Link>
         <article className="blog-article">
@@ -57,7 +57,10 @@ const BlogTemplate = ({ data }) => {
             </p>
             <ShareActions title={title} pathname={`/blog/${slug}`} />
           </header>
-          <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: html }} />
+          <div
+            className="blog-post-content article-prose prose prose-lg max-w-[680px] mx-auto"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
           {tags && (
             <div className="blog-post-tags">
               {tags.map((tag, index) => (

@@ -40,14 +40,14 @@ const ShareActions = ({ title, pathname }) => {
 
   return (
     <div className="share-actions" aria-label="Share this article">
-      <button type="button" className="btn btn-primary btn-sm" onClick={handleShare}>
+      <button type="button" className="theme-btn-primary theme-btn-sm" onClick={handleShare}>
         Share
       </button>
       <a
         href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="btn btn-outline-primary btn-sm"
+        className="theme-btn-outline theme-btn-sm"
         onClick={() =>
           trackEvent("share_linkedin", { event_category: "engagement", event_label: pathname })
         }
@@ -58,12 +58,12 @@ const ShareActions = ({ title, pathname }) => {
         href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="btn btn-outline-primary btn-sm"
+        className="theme-btn-outline theme-btn-sm"
         onClick={() => trackEvent("share_x", { event_category: "engagement", event_label: pathname })}
       >
         X
       </a>
-      <button type="button" className="btn btn-outline-primary btn-sm" onClick={handleCopy}>
+      <button type="button" className="theme-btn-outline theme-btn-sm" onClick={handleCopy}>
         Copy Link
       </button>
     </div>

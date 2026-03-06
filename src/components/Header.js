@@ -28,11 +28,11 @@ const Header = () => {
             ☰
           </button>
           <ul id="primary-navigation" className={`nav-links ${isMenuOpen ? "active" : ""}`}>
-            <li><a href="/#about" onClick={closeMenu}>About</a></li>
-            <li><a href="/experience/" onClick={closeMenu}>Experience</a></li>
-            <li><a href="/#projects" onClick={closeMenu}>Projects</a></li>
-            <li><a href="/#contact" onClick={closeMenu}>Contact Me</a></li>
-            <li><a href="/blog/" onClick={closeMenu}>Blog</a></li>
+            <li><a className="site-nav-link" href="/#about" onClick={closeMenu}>About</a></li>
+            <li><a className="site-nav-link" href="/experience/" onClick={closeMenu}>Experience</a></li>
+            <li><a className="site-nav-link" href="/#projects" onClick={closeMenu}>Projects</a></li>
+            <li><a className="site-nav-link" href="/#contact" onClick={closeMenu}>Contact Me</a></li>
+            <li><a className="site-nav-link" href="/blog/" onClick={closeMenu}>Blog</a></li>
           </ul>
         </nav>
       </div>

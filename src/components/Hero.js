@@ -6,8 +6,8 @@ const Hero = () => {
   const { title, subtitle, description, resumeLink, hireMeLink } = heroData;
 
   return (
-    <section className="hero" id="top">
-      <div className="hero-media">
+    <section className="container hero" id="top">
+      <div className="hero-media-pane">
         <StaticImage
           src="../images/hero-bg.jpg"
           alt="Abstract technology background"
@@ -18,16 +18,15 @@ const Hero = () => {
           loading="eager"
         />
       </div>
-      <div className="hero-overlay" />
-      <div className="container hero-inner">
+      <div className="hero-content-pane">
         <h1 className="hero-title">{title}</h1>
         <h2 className="hero-subtitle">{subtitle}</h2>
         <p className="hero-description">{description}</p>
         <div className="hero-cta">
-          <a href={resumeLink} className="btn btn-light btn-lg" target="_blank" rel="noopener noreferrer">
+          <a href={resumeLink} className="theme-btn-outline-light theme-btn-lg" target="_blank" rel="noopener noreferrer">
             Download Resume
           </a>
-          <a href={hireMeLink} className="btn btn-primary btn-lg">
+          <a href={hireMeLink} className="theme-btn-primary theme-btn-lg">
             Hire Me
           </a>
         </div>

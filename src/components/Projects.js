@@ -28,7 +28,7 @@ const Projects = () => {
       <h2 className="section-title">Projects</h2>
       <div className="row projects-grid">
         {projects.map((project, index) => (
-          <div key={index} className="col-md-6 mb-4">
+          <div key={index} className="col-sm-6 col-lg-4 mb-3">
             <ProjectCard {...project} imageData={imageMap.get(project.image)} />
           </div>
         ))}
