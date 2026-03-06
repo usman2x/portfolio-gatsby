@@ -2,6 +2,9 @@ import React from "react";
 import contactData from "../content/misc/contact-data.json";
 
 const ContactInfo = () => {
+  const whatsappNumber = contactData.phone.value.replace(/\D/g, "");
+  const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+
   return (
     <div className="row text-center mt-4 contact-info-grid">
       <div className="col-md-4">
@@ -23,6 +26,14 @@ const ContactInfo = () => {
             <img src={contactData.phone.icon} alt="Phone Icon" width="24" />
             <p className="contact-info-text">{contactData.phone.value}</p>
           </div>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-info-link contact-whatsapp-link"
+          >
+            Chat on WhatsApp
+          </a>
         </div>
       </div>
 

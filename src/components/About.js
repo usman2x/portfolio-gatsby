@@ -1,33 +1,15 @@
 import React from "react";
 import aboutData from "../content/misc/about.json";
-import { graphql, useStaticQuery } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const About = () => {
   const { description, bio, videoUrl } = aboutData;
-  const data = useStaticQuery(graphql`
-    query AboutProfileImageQuery {
-      file(sourceInstanceName: { eq: "images" }, relativePath: { eq: "usman.jpg" }) {
-        childImageSharp {
-          gatsbyImageData(width: 260, height: 260, quality: 85, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
-        }
-      }
-    }
-  `);
-  const profileImage = getImage(data.file);
 
   return (
     <section id="about" className="container section-shell about-section">
       <h2 className="section-title">About Me</h2>
       
       <div className="row align-items-start about-grid">
-        <div className="col-md-3 mb-4 mb-md-0 text-center about-profile-col">
-          <div className="profile-image-container">
-            <GatsbyImage image={profileImage} alt="Muhammad Usman profile" className="profile-image" />
-          </div>
-        </div>
-        
-        <div className="col-md-9 about-content-col">
+        <div className="col-12 about-content-col">
           <p className="about-intro">{description}</p>
           
           <div className="bio-card">

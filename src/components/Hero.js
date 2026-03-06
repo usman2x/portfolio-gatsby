@@ -9,12 +9,12 @@ const Hero = () => {
     <section className="container hero" id="top">
       <div className="hero-media-pane">
         <StaticImage
-          src="../images/hero-bg.jpg"
-          alt="Abstract technology background"
+          src="../images/usman.jpg"
+          alt="Muhammad Usman portrait"
           placeholder="blurred"
-          quality={70}
+          quality={88}
           formats={["auto", "webp", "avif"]}
-          className="hero-image"
+          className="hero-portrait-image"
           loading="eager"
         />
       </div>

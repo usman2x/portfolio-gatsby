@@ -32,8 +32,7 @@ const BlogPage = ({ data, location }) => {
         <section className="blog-journal-header-wrap">
           <div className="container">
             <header className="blog-journal-header">
-              <p className="blog-journal-kicker">Journal</p>
-              <h1>Unplugger Journal</h1>
+              <h1>Journal</h1>
               <p className="blog-index-subtitle">Insights on engineering, delivery, and growth.</p>
             </header>
           </div>

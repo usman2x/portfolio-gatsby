@@ -284,27 +284,28 @@ html[data-theme="dark"] {
     display: inline-flex;
     align-items: center;
     border-radius: 999px;
-    padding: 0.25rem 0.625rem;
-    font-size: 0.75rem;
+    padding: 0.34rem 0.82rem;
+    font-size: 0.78rem;
     font-weight: 500;
     background: color-mix(in srgb, var(--brand-secondary) 28%, transparent);
     color: var(--text-main);
     border: 1px solid color-mix(in srgb, var(--brand-secondary) 60%, var(--border-default));
-    text-decoration: none;
+    text-decoration: none !important;
   }
 
-  .site-nav-link {
+  .site-nav-link,
+  .site-nav-link:link,
+  .site-nav-link:visited {
     font-size: 0.875rem;
     font-weight: 600;
-    color: #fff4eb;
-    text-decoration: none;
+    color: #fff4eb !important;
+    text-decoration: none !important;
   }
 
   .site-nav-link:hover,
   .site-nav-link:focus {
-    color: #fff;
-    text-decoration: underline;
-    text-underline-offset: 4px;
+    color: #fff !important;
+    text-decoration: none !important;
   }
 
   .article-prose {
@@ -413,8 +414,15 @@ html[data-theme="dark"] {
   height: 100%;
 }
 
-.hero-image img {
+.hero-portrait-image,
+.hero-portrait-image .gatsby-image-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-portrait-image img {
   object-fit: cover;
+  object-position: center top;
 }
 
 .hero-content-pane {
@@ -688,7 +696,7 @@ html[data-theme="dark"] {
   margin-bottom: 0.1rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem;
+  gap: 0.5rem;
 }
 
 .project-card-link {
@@ -756,6 +764,13 @@ html[data-theme="dark"] {
 
 .contact-info-link:hover {
   color: var(--brand-primary);
+}
+
+.contact-whatsapp-link {
+  display: inline-flex;
+  margin-top: 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 600;
 }
 
 .contact-social-link {
