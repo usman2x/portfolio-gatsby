@@ -3,8 +3,7 @@
  *
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/
  */
-require("bootstrap/dist/css/bootstrap.min.css");
-require("./src/styles/global.css");
+require("./src/styles/global.css")
 
 /**
  * @type {import('gatsby').GatsbySSR['onRenderBody']}

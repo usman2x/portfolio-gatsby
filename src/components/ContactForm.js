@@ -1,53 +1,56 @@
-import React from "react";
-import contactData from "../content/misc/contact-data.json";
+import React from "react"
+import contactData from "../content/misc/contact-data.json"
 
 const ContactForm = () => {
-  const formLink = process.env.GATSBY_FORM_LINK || "#";
-  const siteUrl = process.env.GATSBY_SITE_URL || "https://www.musman.online";
-  const redirectPage = new URL(contactData["redirect-page"], siteUrl).href;
+  const formLink = process.env.GATSBY_FORM_LINK || "#"
+  const siteUrl = process.env.GATSBY_SITE_URL || "https://www.musman.online"
+  const redirectPage = new URL(contactData["redirect-page"], siteUrl).href
 
   return (
-    <div className="col-md-9 contact-form-col">
-      <div className="card shadow-sm p-4 contact-form-card">
+    <div className="mx-auto w-full max-w-3xl">
+      <div className="contact-form-card">
         <form action={formLink} method="POST">
-          <div className="mb-3 contact-form-field">
-            <label className="form-label contact-form-label">Name</label>
-            <input 
-              type="text" 
-              name="name" 
-              className="form-control contact-form-input" 
-              placeholder="Enter your name" 
-              required 
+          <div className="contact-form-field">
+            <label className="contact-form-label">Name</label>
+            <input
+              type="text"
+              name="name"
+              className="contact-form-input"
+              placeholder="Enter your name"
+              required
             />
           </div>
-          <div className="mb-3 contact-form-field">
-            <label className="form-label contact-form-label">Email</label>
-            <input 
-              type="email" 
-              name="email" 
-              className="form-control contact-form-input" 
-              placeholder="Enter your email" 
-              required 
+          <div className="contact-form-field">
+            <label className="contact-form-label">Email</label>
+            <input
+              type="email"
+              name="email"
+              className="contact-form-input"
+              placeholder="Enter your email"
+              required
             />
           </div>
-          <div className="mb-3 contact-form-field">
-            <label className="form-label contact-form-label">Message</label>
-            <textarea 
-              name="message" 
-              className="form-control contact-form-input" 
-              rows="4" 
-              placeholder="Write your message..." 
+          <div className="contact-form-field">
+            <label className="contact-form-label">Message</label>
+            <textarea
+              name="message"
+              className="contact-form-input"
+              rows="4"
+              placeholder="Write your message..."
               required
             ></textarea>
           </div>
           <input type="hidden" name="_next" value={redirectPage} />
-          <button type="submit" className="theme-btn-primary w-100 contact-submit-btn">
+          <button
+            type="submit"
+            className="theme-btn-primary contact-submit-btn"
+          >
             Send Message
           </button>
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ContactForm;
+export default ContactForm

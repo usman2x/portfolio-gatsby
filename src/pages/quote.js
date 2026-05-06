@@ -1,13 +1,13 @@
-import React from "react";
-import Layout from "../components/Layout";
-import SEO from "../components/seo";
-import quotePage from "../content/pages/quote.json";
-import contactData from "../content/misc/contact-data.json";
+import React from "react"
+import Layout from "../components/Layout"
+import SEO from "../components/seo"
+import quotePage from "../content/pages/quote.json"
+import contactData from "../content/misc/contact-data.json"
 
 const QuotePage = () => {
-  const formLink = process.env.GATSBY_FORM_LINK || "#";
-  const siteUrl = process.env.GATSBY_SITE_URL || "https://www.musman.online";
-  const redirectPage = new URL(contactData["redirect-page"], siteUrl).href;
+  const formLink = process.env.GATSBY_FORM_LINK || "#"
+  const siteUrl = process.env.GATSBY_SITE_URL || "https://www.musman.online"
+  const redirectPage = new URL(contactData["redirect-page"], siteUrl).href
 
   return (
     <Layout>
@@ -18,7 +18,6 @@ const QuotePage = () => {
       />
       <section className="container interior-page quote-page-shell">
         <section className="interior-section quote-intro">
-          <p className="section-eyebrow">{quotePage.intro.eyebrow}</p>
           <h1 className="page-title">{quotePage.intro.title}</h1>
           <p className="page-description">{quotePage.intro.description}</p>
         </section>
@@ -26,16 +25,22 @@ const QuotePage = () => {
         <section className="interior-section quote-form-section">
           <form action={formLink} method="POST" className="quote-form">
             <div className="quote-grid">
-              {quotePage.steps.map((step) => (
+              {quotePage.steps.map(step => (
                 <div key={step.id} className="quote-field">
                   <label className="contact-form-label" htmlFor={step.id}>
                     {step.label}
                   </label>
-                  <select id={step.id} name={step.name} className="form-control contact-form-input" required defaultValue="">
+                  <select
+                    id={step.id}
+                    name={step.name}
+                    className="contact-form-input"
+                    required
+                    defaultValue=""
+                  >
                     <option value="" disabled>
                       Select an option
                     </option>
-                    {step.options.map((option) => (
+                    {step.options.map(option => (
                       <option key={option} value={option}>
                         {option}
                       </option>
@@ -53,14 +58,14 @@ const QuotePage = () => {
                 id="context"
                 name="context"
                 rows="6"
-                className="form-control contact-form-input"
+                className="contact-form-input"
                 placeholder={quotePage.contextPlaceholder}
                 required
               ></textarea>
             </div>
 
             <div className="quote-grid quote-contact-grid">
-              {quotePage.contactFields.map((field) => (
+              {quotePage.contactFields.map(field => (
                 <div key={field.name} className="quote-field">
                   <label className="contact-form-label" htmlFor={field.name}>
                     {field.label}
@@ -69,27 +74,30 @@ const QuotePage = () => {
                     id={field.name}
                     type={field.type}
                     name={field.name}
-                    className="form-control contact-form-input"
+                    className="contact-form-input"
                     placeholder={field.placeholder}
                     required={field.name !== "company"}
                   />
                 </div>
               ))}
               <div className="quote-field">
-                <label className="contact-form-label" htmlFor="preferred_contact">
+                <label
+                  className="contact-form-label"
+                  htmlFor="preferred_contact"
+                >
                   {quotePage.contactMethod.label}
                 </label>
                 <select
                   id="preferred_contact"
                   name={quotePage.contactMethod.name}
-                  className="form-control contact-form-input"
+                  className="contact-form-input"
                   required
                   defaultValue=""
                 >
                   <option value="" disabled>
                     Select an option
                   </option>
-                  {quotePage.contactMethod.options.map((option) => (
+                  {quotePage.contactMethod.options.map(option => (
                     <option key={option} value={option}>
                       {option}
                     </option>
@@ -99,7 +107,10 @@ const QuotePage = () => {
             </div>
 
             <input type="hidden" name="_next" value={redirectPage} />
-            <button type="submit" className="theme-btn-primary quote-submit-btn">
+            <button
+              type="submit"
+              className="theme-btn-primary quote-submit-btn"
+            >
               {quotePage.submitLabel}
             </button>
           </form>
@@ -108,17 +119,25 @@ const QuotePage = () => {
         <section className="interior-section alternative-actions">
           <h2 className="interior-section-title">Prefer another path?</h2>
           <div className="cta-actions">
-            <a href={contactData.meetingLink} className="theme-btn-outline theme-btn-sm" target="_blank" rel="noopener noreferrer">
+            <a
+              href={contactData.meetingLink}
+              className="theme-btn-outline theme-btn-sm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Book a Call
             </a>
-            <a href={`mailto:${contactData.email.value}`} className="theme-btn-outline theme-btn-sm">
+            <a
+              href={`mailto:${contactData.email.value}`}
+              className="theme-btn-outline theme-btn-sm"
+            >
               Email Me
             </a>
           </div>
         </section>
       </section>
     </Layout>
-  );
-};
+  )
+}
 
-export default QuotePage;
+export default QuotePage

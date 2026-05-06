@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { Link } from "gatsby";
-import contactData from "../content/misc/contact-data.json";
-import identity from "../content/misc/identity.json";
+import React, { useState } from "react"
+import { Link } from "gatsby"
+import contactData from "../content/misc/contact-data.json"
+import identity from "../content/misc/identity.json"
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+    setIsMenuOpen(!isMenuOpen)
+  }
 
   const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+    setIsMenuOpen(false)
+  }
 
   return (
     <header className="header">
@@ -31,11 +31,50 @@ const Header = () => {
           >
             ☰
           </button>
-          <ul id="primary-navigation" className={`nav-links ${isMenuOpen ? "active" : ""}`}>
-            <li><Link className="site-nav-link" to="/about/" onClick={closeMenu}>About</Link></li>
-            <li><Link className="site-nav-link" to="/projects/" onClick={closeMenu}>Projects</Link></li>
-            <li><Link className="site-nav-link" to="/blog/" onClick={closeMenu}>Writings</Link></li>
-            <li><Link className="site-nav-link" to="/quote/" onClick={closeMenu}>Get a Quote</Link></li>
+          <ul
+            id="primary-navigation"
+            className={`nav-links ${isMenuOpen ? "active" : ""}`}
+          >
+            <li>
+              <Link
+                className="site-nav-link !text-[var(--text-main)] hover:!text-[var(--brand-primary)] focus:!text-[var(--brand-primary)]"
+                activeClassName="site-nav-link-active"
+                to="/about/"
+                onClick={closeMenu}
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="site-nav-link !text-[var(--text-main)] hover:!text-[var(--brand-primary)] focus:!text-[var(--brand-primary)]"
+                activeClassName="site-nav-link-active"
+                to="/projects/"
+                onClick={closeMenu}
+              >
+                Projects
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="site-nav-link !text-[var(--text-main)] hover:!text-[var(--brand-primary)] focus:!text-[var(--brand-primary)]"
+                activeClassName="site-nav-link-active"
+                to="/blog/"
+                onClick={closeMenu}
+              >
+                Writings
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="site-nav-link !text-[var(--text-main)] hover:!text-[var(--brand-primary)] focus:!text-[var(--brand-primary)]"
+                activeClassName="site-nav-link-active"
+                to="/quote/"
+                onClick={closeMenu}
+              >
+                Get a Quote
+              </Link>
+            </li>
             <li className="nav-cta-item">
               <a
                 className="theme-btn-primary theme-btn-sm header-nav-cta"
@@ -51,7 +90,7 @@ const Header = () => {
         </nav>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

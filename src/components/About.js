@@ -1,22 +1,36 @@
-import React from "react";
-import aboutData from "../content/misc/about.json";
+import React from "react"
+import aboutData from "../content/misc/about.json"
 
 const About = () => {
-  const { description, bio, videoUrl } = aboutData;
+  const { description, bio, videoUrl } = aboutData
 
   return (
-    <section id="about" className="container section-shell about-section">
-      <h2 className="section-title">About Me</h2>
-      
-      <div className="row align-items-start about-grid">
-        <div className="col-12 about-content-col">
-          <p className="about-intro">{description}</p>
-          
-          <div className="bio-card">
-            <h3 className="bio-title">Achievements</h3>
-            <ul className="bio-list">
+    <section
+      id="about"
+      className="container rounded-[14px] border border-[var(--border-default)] bg-[var(--bg-card)] p-5 shadow-[var(--shadow-sm)]"
+    >
+      <h2 className="mb-4 text-center font-heading text-3xl text-[var(--text-main)]">
+        About Me
+      </h2>
+
+      <div className="grid gap-4">
+        <div>
+          <p className="mb-3 leading-[1.62] text-[var(--text-muted)]">
+            {description}
+          </p>
+
+          <div className="rounded-[14px] border border-[var(--border-default)] bg-[var(--bg-card)] px-4 py-4">
+            <h3 className="mb-3 font-heading text-[1.05rem] text-[var(--text-main)]">
+              Achievements
+            </h3>
+            <ul className="list-none space-y-2">
               {bio.map((item, index) => (
-                <li key={index} className="bio-item">{item}</li>
+                <li
+                  key={index}
+                  className="relative pl-4 text-[var(--text-muted)] before:absolute before:left-0 before:top-[0.62rem] before:h-[6px] before:w-[6px] before:rounded-full before:bg-[var(--brand-primary)] before:content-['']"
+                >
+                  {item}
+                </li>
               ))}
             </ul>
           </div>
@@ -24,14 +38,15 @@ const About = () => {
       </div>
 
       {videoUrl && (
-        <div className="about-video-block">
-          <h3 className="about-video-title">Video Introduction</h3>
-          <div className="video-container">
-          
+        <div className="mt-4">
+          <h3 className="mb-2 text-center font-heading text-[1.15rem] text-[var(--text-main)]">
+            Video Introduction
+          </h3>
+          <div className="mx-auto mt-4 aspect-video w-full max-w-[760px] overflow-hidden rounded-[14px] shadow-[var(--shadow-md)]">
             <iframe
               src={videoUrl}
               title="Introduction Video"
-              className="about-video"
+              className="h-full w-full border-0"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -40,7 +55,7 @@ const About = () => {
         </div>
       )}
     </section>
-  );
-};
+  )
+}
 
-export default About;
+export default About

@@ -8,21 +8,17 @@
     "callLabel": "Book a Call"
   },
   "projects": {
-    "eyebrow": "Selected projects",
-    "title": "Projects I've worked on",
-    "description": "Selected work across data platforms, cloud systems, and product engineering.",
+    "title": "Selected projects",
     "featuredSlugs": [
       "data-landscape-scanner",
       "unified-data-platform",
       "error-reprocessing-tool"
     ],
-    "archiveLabel": "View All Projects"
+    "archiveLabel": "All projects"
   },
   "writings": {
-    "eyebrow": "Latest writings",
-    "title": "Recent notes on engineering and AI",
-    "description": "Writing on systems, AI, execution, and the human side of doing meaningful work.",
-    "archiveLabel": "See All Writings",
+    "title": "Latest writings",
+    "archiveLabel": "All writings",
     "limit": 3
   },
   "cta": {

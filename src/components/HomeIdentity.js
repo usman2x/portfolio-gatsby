@@ -1,15 +1,18 @@
-import React from "react";
-import { Link } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
-import identity from "../content/misc/identity.json";
-import homeContent from "../content/pages/home.json";
-import contactData from "../content/misc/contact-data.json";
+import React from "react"
+import { Link } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
+import identity from "../content/misc/identity.json"
+import homeContent from "../content/pages/home.json"
+import contactData from "../content/misc/contact-data.json"
 
 const HomeIdentity = () => {
-  const { aboutLabel, callLabel } = homeContent.identity;
+  const { aboutLabel, callLabel } = homeContent.identity
 
   return (
-    <section className="container landing-section landing-section-surface landing-section-surface-brand identity-section" id="top">
+    <section
+      className="container landing-section landing-section-surface landing-section-surface-brand identity-section"
+      id="top"
+    >
       <div className="identity-layout">
         <Link to="/about/" className="identity-link-card">
           <div className="identity-portrait">
@@ -24,7 +27,6 @@ const HomeIdentity = () => {
             />
           </div>
           <div className="identity-heading-block">
-            <p className="section-eyebrow">About</p>
             <h1 className="identity-name">{identity.name}</h1>
             <p className="identity-title">{identity.title}</p>
           </div>
@@ -49,7 +51,7 @@ const HomeIdentity = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default HomeIdentity;
+export default HomeIdentity

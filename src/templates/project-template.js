@@ -1,11 +1,12 @@
-import React from "react";
-import { Link } from "gatsby";
-import Layout from "../components/Layout";
-import SEO from "../components/seo";
-import contactData from "../content/misc/contact-data.json";
+import React from "react"
+import { Link } from "gatsby"
+import Layout from "../components/Layout"
+import SEO from "../components/seo"
+import contactData from "../content/misc/contact-data.json"
+import ProjectVisual from "../components/ProjectVisual"
 
 const ProjectTemplate = ({ pageContext }) => {
-  const { project, previousProject, nextProject } = pageContext;
+  const { project, previousProject, nextProject } = pageContext
 
   return (
     <Layout>
@@ -16,17 +17,24 @@ const ProjectTemplate = ({ pageContext }) => {
       />
       <section className="container interior-page project-template-shell">
         <section className="interior-section">
-          <p className="section-eyebrow">Project case study</p>
-          <Link to="/projects/" className="text-link-cta">
+          <Link to="/projects/" className="text-link-cta link-underline">
             Back to all projects
           </Link>
           <h1 className="page-title">{project.title}</h1>
           <p className="page-description">{project.summary}</p>
+          <ProjectVisual
+            image={project.image}
+            alt={`${project.title} project preview`}
+            title={project.title}
+            className="project-detail-media"
+          />
         </section>
 
         <section className="interior-section">
           <h2 className="interior-section-title">Role and contribution</h2>
-          <p className="project-detail-role project-detail-role-strong">{project.role}</p>
+          <p className="project-detail-role project-detail-role-strong">
+            {project.role}
+          </p>
         </section>
 
         <section className="interior-section">
@@ -37,8 +45,8 @@ const ProjectTemplate = ({ pageContext }) => {
         <section className="interior-section">
           <h2 className="interior-section-title">Stack and context</h2>
           <div className="preview-tag-list">
-            {(project.tags || []).map((tag) => (
-              <span key={tag} className="tag">
+            {(project.tags || []).map(tag => (
+              <span key={tag} className="tag-chip">
                 {tag}
               </span>
             ))}
@@ -47,17 +55,19 @@ const ProjectTemplate = ({ pageContext }) => {
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-link-cta"
+            className="text-link-cta link-underline"
           >
             External reference
           </a>
         </section>
 
         <section className="interior-section interior-cta">
-          <h2 className="interior-section-title">Need help with similar engineering work?</h2>
+          <h2 className="interior-section-title">
+            Need help with similar engineering work?
+          </h2>
           <p className="interior-copy">
-            If you need support on product engineering, platform work, or systems delivery,
-            start with a concrete ask.
+            If you need support on product engineering, platform work, or
+            systems delivery, start with a concrete ask.
           </p>
           <div className="cta-actions">
             <Link to="/quote/" className="theme-btn-primary theme-btn-sm">
@@ -77,8 +87,13 @@ const ProjectTemplate = ({ pageContext }) => {
         {(previousProject || nextProject) && (
           <nav className="project-pagination" aria-label="Project pagination">
             {previousProject ? (
-              <Link to={`/projects/${previousProject.slug}/`} className="project-pagination-card">
-                <span className="project-pagination-label">Previous project</span>
+              <Link
+                to={`/projects/${previousProject.slug}/`}
+                className="project-pagination-card"
+              >
+                <span className="project-pagination-label">
+                  Previous project
+                </span>
                 <strong>{previousProject.title}</strong>
               </Link>
             ) : null}
@@ -95,7 +110,7 @@ const ProjectTemplate = ({ pageContext }) => {
         )}
       </section>
     </Layout>
-  );
-};
+  )
+}
 
-export default ProjectTemplate;
+export default ProjectTemplate
