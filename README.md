@@ -1,5 +1,15 @@
 # 📄 Gatsby Site: Local Testing & GitHub Pages Deployment
 
+## Requirements
+
+Use Node.js 20 LTS (or any Node.js version `>=18.0.0`).
+
+If you use `nvm`, run:
+
+```bash
+nvm use
+```
+
 ## 🚀 1. Run Gatsby Locally (for Development)
 
 To start the site in development mode:
@@ -60,7 +70,7 @@ npm install gh-pages --save-dev
 "scripts": {
   "develop": "gatsby develop",
   "build": "gatsby build",
-  "serve": "gatsby serve",
+  "serve": "npm run build && gatsby serve",
   "deploy": "gatsby build --prefix-paths && gh-pages -d public"
 }
 ```
@@ -83,3 +93,5 @@ You can also manually test the build before deploying:
 npm run build
 gatsby serve --prefix-paths
 ```
+
+For this repo specifically, `npm run serve` already runs the build step before starting the server. If you run `gatsby serve` directly, make sure a successful `gatsby build` has completed first.

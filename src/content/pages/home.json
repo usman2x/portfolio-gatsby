@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Engineering Journal and Selected Work",
+    "description": "Software engineering notes, selected delivery work, and clear ways to start a project conversation."
+  },
+  "identity": {
+    "aboutLabel": "Read About Me",
+    "callLabel": "Book a Call"
+  },
+  "projects": {
+    "eyebrow": "Selected projects",
+    "title": "Projects I've worked on",
+    "description": "Selected work across data platforms, cloud systems, and product engineering.",
+    "featuredSlugs": [
+      "data-landscape-scanner",
+      "unified-data-platform",
+      "error-reprocessing-tool"
+    ],
+    "archiveLabel": "View All Projects"
+  },
+  "writings": {
+    "eyebrow": "Latest writings",
+    "title": "Recent notes on engineering and AI",
+    "description": "Writing on systems, AI, execution, and the human side of doing meaningful work.",
+    "archiveLabel": "See All Writings",
+    "limit": 3
+  },
+  "cta": {
+    "eyebrow": "Start a conversation",
+    "title": "Tell me what you need, not just that you want to connect.",
+    "description": "If you need help with product engineering, platform work, data systems, or practical AI integration, start with a concrete ask.",
+    "quoteLabel": "Get a Quote",
+    "callLabel": "Book a Call",
+    "credentialsLabel": "View Credentials"
+  }
+}

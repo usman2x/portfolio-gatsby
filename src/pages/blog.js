@@ -7,96 +7,185 @@ import SEO from "../components/seo"; // Import the SEO component
 
 const BlogPage = ({ data, location }) => {
   const posts = data.allMarkdownRemark.nodes;
+  const postsPerPage = 6;
   const query = new URLSearchParams(location?.search || "");
   const selectedTag = query.get("tag") || "all-tags";
+  const requestedPage = Number.parseInt(query.get("page") || "1", 10);
   const allTags = Array.from(
-    new Set(
-      posts.flatMap((post) => post.frontmatter.tags || []).map((tag) => tag.toLowerCase())
-    )
-  ).sort((a, b) => a.localeCompare(b));
+    posts.reduce((tagMap, post) => {
+      (post.frontmatter.tags || []).forEach((tag) => {
+        const normalizedTag = tag.toLowerCase();
+        if (!tagMap.has(normalizedTag)) {
+          tagMap.set(normalizedTag, tag);
+        }
+      });
+      return tagMap;
+    }, new Map())
+  )
+    .map(([value, label]) => ({ value, label }))
+    .sort((a, b) => a.label.localeCompare(b.label));
   const filteredPosts =
     selectedTag === "all-tags"
       ? posts
       : posts.filter((post) =>
           (post.frontmatter.tags || []).some((tag) => tag.toLowerCase() === selectedTag)
         );
+  const selectedTagLabel =
+    selectedTag === "all-tags"
+      ? "All"
+      : allTags.find((tag) => tag.value === selectedTag)?.label || selectedTag;
+  const totalPages = Math.max(1, Math.ceil(filteredPosts.length / postsPerPage));
+  const currentPage =
+    Number.isFinite(requestedPage) && requestedPage > 0
+      ? Math.min(requestedPage, totalPages)
+      : 1;
+  const visiblePosts = filteredPosts.slice(
+    (currentPage - 1) * postsPerPage,
+    currentPage * postsPerPage
+  );
+  const buildArchivePath = (tag, page = 1) => {
+    const params = new URLSearchParams();
+    if (page > 1) {
+      params.set("page", String(page));
+    }
+    if (tag !== "all-tags") {
+      params.set("tag", tag);
+    }
+    const queryString = params.toString();
+
+    return queryString ? `/blog/?${queryString}` : "/blog/";
+  };
 
   return (
     <Layout>
       <SEO
-        title="All Articles"
-        description="Explore my latest articles and insights on software engineering, technology, and more."
-        pathname="/blog" // Canonical URL path for this page
+        title="Writings"
+        description="Notes on engineering, AI, systems thinking, and the human side of building and working."
+        pathname="/blog/"
       />
-      <main className="blog-index">
-        <section className="blog-journal-header-wrap">
-          <div className="container">
-            <header className="blog-journal-header">
-              <h1>Journal</h1>
-              <p className="blog-index-subtitle">Insights on engineering, delivery, and growth.</p>
-            </header>
-          </div>
+      <main className="writings-page">
+        <section className="container writings-page-header">
+          <p className="section-eyebrow">Writings</p>
+          <h1 className="page-title">Latest writings</h1>
+          <p className="page-description">
+            Notes on engineering, AI, systems thinking, and the human side of building and
+            working.
+          </p>
         </section>
-        <section className="blog-journal-content-wrap">
-          <div className="container">
-            <div className="blog-journal-layout">
-              <aside className="blog-journal-sidebar">
-                <h3>Tags</h3>
-                <div className="blog-tag-list">
-                  <a
-                    href="/blog/?page=1&tag=all-tags"
-                    className={`blog-tag-pill ${selectedTag === "all-tags" ? "active" : ""}`}
+        <section className="container">
+          <div className="writings-layout">
+            <aside className="writings-filter-panel">
+              <div className="writings-filter-copy">
+                <h2 className="writings-filter-title">Filter by topic</h2>
+                <p className="writings-filter-description">
+                  Start with one topic at a time. The archive stays focused and easy to scan.
+                </p>
+              </div>
+              <div className="writings-tag-list">
+                <Link
+                  to={buildArchivePath("all-tags")}
+                  className={`blog-tag-pill ${selectedTag === "all-tags" ? "active" : ""}`}
+                >
+                  All
+                </Link>
+                {allTags.map((tag) => (
+                  <Link
+                    key={tag.value}
+                    to={buildArchivePath(tag.value)}
+                    className={`blog-tag-pill ${selectedTag === tag.value ? "active" : ""}`}
                   >
-                    all-tags
-                  </a>
-                  {allTags.map((tag) => (
-                    <a
-                      key={tag}
-                      href={`/blog/?page=1&tag=${encodeURIComponent(tag)}`}
-                      className={`blog-tag-pill ${selectedTag === tag ? "active" : ""}`}
-                    >
-                      {tag}
-                    </a>
-                  ))}
-                </div>
-              </aside>
-              <main className="blog-journal-main">
-                {filteredPosts.map((post) => {
+                    {tag.label}
+                  </Link>
+                ))}
+              </div>
+            </aside>
+            <div className="writings-main">
+              <div className="writings-results-bar">
+                <p className="writings-results-copy">
+                  Showing {visiblePosts.length} of {filteredPosts.length} article
+                  {filteredPosts.length === 1 ? "" : "s"}
+                  {selectedTag !== "all-tags" ? ` in ${selectedTagLabel}` : ""}.
+                </p>
+                <Link to="/quote/" className="text-link-cta">
+                  Need help with similar work?
+                </Link>
+              </div>
+              <div className="writings-list">
+                {visiblePosts.map((post) => {
                   const { title, slug, date, description, cover, tags } = post.frontmatter;
                   const coverImage = getImage(cover);
                   return (
-                    <article key={post.id} className="journal-entry">
-                      {coverImage ? (
-                        <Link to={`/blog/${slug}`} className="journal-entry-media">
-                          <GatsbyImage image={coverImage} alt={title} className="journal-entry-image" />
-                        </Link>
-                      ) : null}
-                      <div className="journal-entry-body">
-                        <p className="journal-entry-date">{format(new Date(date), "MMMM d, yyyy")}</p>
-                        <h2 className="journal-entry-title">
-                          <Link to={`/blog/${slug}`} className="post-link">
+                    <article
+                      key={post.id}
+                      className={`writing-list-item ${
+                        coverImage ? "writing-list-item-with-media" : ""
+                      }`}
+                    >
+                      <div className="writing-list-body">
+                        <p className="writing-list-meta">
+                          <span>{format(new Date(date), "MMMM d, yyyy")}</span>
+                          <span>•</span>
+                          <span>{post.timeToRead} min read</span>
+                        </p>
+                        <h2 className="writing-list-title">
+                          <Link to={`/blog/${slug}`} className="writing-list-title-link">
                             {title}
                           </Link>
                         </h2>
-                        <p className="journal-entry-description">{description || post.excerpt}</p>
+                        <p className="writing-list-description">{description || post.excerpt}</p>
                         {tags?.length ? (
-                          <div className="journal-entry-tags">
+                          <div className="writing-list-tags">
                             {tags.map((tag) => (
-                              <a
+                              <Link
                                 key={tag}
                                 className="tag-chip"
-                                href={`/blog/?page=1&tag=${encodeURIComponent(tag.toLowerCase())}`}
+                                to={buildArchivePath(tag.toLowerCase())}
                               >
                                 #{tag}
-                              </a>
+                              </Link>
                             ))}
                           </div>
                         ) : null}
+                        <Link to={`/blog/${slug}`} className="text-link-cta writing-read-link">
+                          Read article
+                        </Link>
                       </div>
+                      {coverImage ? (
+                        <Link to={`/blog/${slug}`} className="writing-list-media">
+                          <GatsbyImage image={coverImage} alt={title} className="writing-list-image" />
+                        </Link>
+                      ) : null}
                     </article>
                   );
                 })}
-              </main>
+              </div>
+              {totalPages > 1 ? (
+                <nav className="writings-pagination" aria-label="Blog pagination">
+                  {currentPage > 1 ? (
+                    <Link
+                      to={buildArchivePath(selectedTag, currentPage - 1)}
+                      className="pagination-link pagination-link-prev"
+                    >
+                      Previous page
+                    </Link>
+                  ) : (
+                    <span className="pagination-link pagination-link-disabled">Previous page</span>
+                  )}
+                  <p className="pagination-status">
+                    Page {currentPage} of {totalPages}
+                  </p>
+                  {currentPage < totalPages ? (
+                    <Link
+                      to={buildArchivePath(selectedTag, currentPage + 1)}
+                      className="pagination-link pagination-link-next"
+                    >
+                      Next page
+                    </Link>
+                  ) : (
+                    <span className="pagination-link pagination-link-disabled">Next page</span>
+                  )}
+                </nav>
+              ) : null}
             </div>
           </div>
         </section>

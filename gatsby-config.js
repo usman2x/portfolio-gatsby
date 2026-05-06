@@ -3,8 +3,8 @@ require("dotenv").config();
 module.exports = {
   pathPrefix: "/",
   siteMetadata: {
-    title: "Software Engineer | Full-Stack Developer",
-    description: "8+ years in software engineering with a full-stack mindset. Worked with clients across four continents, including Fortune 100 companies.",
+    title: "Muhammad Usman | Engineering Journal and Selected Work",
+    description: "Software engineering notes, selected delivery work, and practical ways to start a project conversation.",
     author: "Muhammad Usman",
     siteUrl: "https://www.musman.online",
     giscus: {
@@ -74,10 +74,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Muhammad Usman`,
+        short_name: `musman`,
         start_url: `/`,
-        background_color: `#663399`,
+        background_color: `#f7f3ee`,
         display: `minimal-ui`,
         icon: `static/images/portfolio.png`, // This path is relative to the root of the site.
       },
