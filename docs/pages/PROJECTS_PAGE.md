@@ -108,15 +108,16 @@ Purpose:
 Recommended page order:
 
 1. Case study header
-2. Project summary
+2. Tech stack
 3. Context / problem
-4. Role and responsibilities
-5. What I worked on
-6. Stack / tools
-7. Outcomes / impact
-8. Related projects
+4. Solution / approach
+5. Role and responsibilities
+6. Outcomes / impact
+7. Project link / reference
+8. Transition into CTA
 9. CTA block
-10. Footer
+10. Related projects
+11. Footer
 
 ## 1. Case Study Header
 
@@ -140,21 +141,20 @@ Recommended title tag pattern:
 
 - `<Project Name> | Project Case Study`
 
-## 2. Project Summary
+## 2. Tech Stack
 
 Purpose:
 
-- Give the visitor the project in plain language before details
+- Give quick technical context near the top of the page
 
-Should answer:
+Should include:
 
-- What was the project?
-- What kind of system was it?
-- Why did it matter?
+- compact stack list
+- scannable tags or chips
 
 Rule:
 
-- Keep this short and readable.
+- Keep stack visible early, but visually quiet.
 
 ## 3. Context / Problem
 
@@ -173,11 +173,27 @@ Rule:
 
 - Frame the project around a real problem, not only the stack.
 
-## 4. Role and Responsibilities
+## 4. Solution / Approach
 
 Purpose:
 
-- Clarify your contribution
+- Explain how the problem was addressed
+
+Should answer:
+
+- What changed?
+- What kind of system or workflow was introduced?
+- How was the implementation direction shaped?
+
+Rule:
+
+- Keep this readable and outcome-oriented, not just technical narration.
+
+## 5. Role and Responsibilities
+
+Purpose:
+
+- Clarify your contribution with more detail than the summary line
 
 Should answer:
 
@@ -185,53 +201,16 @@ Should answer:
 - What did you own?
 - What decisions or work areas were yours?
 
-Rule:
-
-- Be precise about your contribution.
-
-## 5. What I Worked On
-
-Purpose:
-
-- Show the technical and delivery details
-
 Recommended content:
 
-- 3 to 6 specific contribution blocks
-- each block can include:
-  - challenge
-  - action
-  - result
+- role summary line
+- 3 to 6 responsibility points when available
 
 Rule:
 
-- Focus on meaningful contribution, not task listing.
+- Focus on meaningful ownership, not generic task listing.
 
-## 6. Stack / Tools
-
-Purpose:
-
-- Give quick technical context
-
-Suggested layout:
-
-- compact list of technologies
-
-Examples from current repo content:
-
-- Java
-- Spring Boot
-- React
-- Apache Kafka
-- Snowflake
-- Apache Airflow
-- AWS
-
-Rule:
-
-- Keep stack compact and scannable.
-
-## 7. Outcomes / Impact
+## 6. Outcomes / Impact
 
 Purpose:
 
@@ -250,19 +229,34 @@ Rule:
 - Prefer measurable outcomes when available.
 - If exact numbers are unavailable, use clear qualitative impact.
 
-## 8. Related Projects
+## 7. Project Link / Reference
 
 Purpose:
 
-- Keep users exploring adjacent work
+- Provide an external destination when it adds context
 
 Should include:
 
-- 2 to 3 related case studies
+- live product link, public site, or reference page when available
 
 Rule:
 
-- Related projects should be chosen by domain, stack, or type of problem.
+- Treat this as a supporting reference, not the primary proof.
+
+## 8. Transition Into CTA
+
+Purpose:
+
+- Give the page a deliberate closing handoff before conversion
+
+Should include:
+
+- a restrained transition line or label
+- a clear emotional shift from case study to next step
+
+Rule:
+
+- Use this transition sparingly and keep it typographic, not promotional.
 
 ## 9. CTA Block
 
@@ -285,6 +279,20 @@ Trust CTA:
 Supporting copy:
 
 - `If you need similar engineering help, send a concrete ask or book a short call.`
+
+## 10. Related Projects
+
+Purpose:
+
+- Keep users exploring adjacent work
+
+Should include:
+
+- 2 to 3 related case studies
+
+Rule:
+
+- Related projects should be chosen by domain, stack, or type of problem.
 
 ## SEO Requirements
 
@@ -339,10 +347,12 @@ Project preview content:
 Case study detail content:
 
 - Markdown is recommended if you want flexible long-form structure
+- Structured JSON is also acceptable when each section is modeled explicitly
 
 Suggested future file model:
 
 - `src/content/misc/projects.json` for preview metadata
+- `src/content/pages/project-detail.json` for reusable project-page labels and CTA copy
 - `src/content/projects/<slug>.md` for case study pages
 
 Recommended frontmatter for case study Markdown:
@@ -354,6 +364,17 @@ Recommended frontmatter for case study Markdown:
 - `tags`
 - `cover`
 - `featured`
+
+Suggested structured JSON fields for case-study details:
+
+- `summary`
+- `problem`
+- `solution`
+- `role`
+- `responsibilities`
+- `results`
+- `link`
+- `linkLabel`
 
 ## Candidate Starting Case Studies from Current Repo Content
 

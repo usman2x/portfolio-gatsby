@@ -1,0 +1,24 @@
+{
+  "navigation": {
+    "backLabel": "Back to all projects"
+  },
+  "sections": {
+    "stack": "Tech stack",
+    "problem": "The problem",
+    "solution": "The solution",
+    "role": "Role and responsibilities",
+    "results": "Results we achieved",
+    "link": "Project link"
+  },
+  "link": {
+    "defaultLabel": "View external reference",
+    "description": "Explore the external reference for additional context around the project."
+  },
+  "cta": {
+    "transitionLabel": "From case study to collaboration",
+    "title": "Need help with a similar engineering challenge?",
+    "description": "If you need support across product engineering, data systems, platform work, or delivery execution, start with a concrete problem statement and we can shape the next step.",
+    "primaryLabel": "Get a Quote",
+    "secondaryLabel": "Book a Call"
+  }
+}

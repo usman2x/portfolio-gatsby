@@ -183,6 +183,7 @@ Typography rules:
 - Default to neutral backgrounds
 - Introduce tinted backgrounds sparingly for contrast
 - Ensure clear entry point for the eye
+- On information-dense detail pages, use typography and section rhythm as the main separator before adding stronger surfaces
 
 ### Featured Elements
 

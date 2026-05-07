@@ -188,30 +188,6 @@ const BlogTemplate = ({ data }) => {
             )}
           </nav>
         ) : null}
-        <section className="blog-post-cta">
-          <div>
-            <h2 className="interior-section-title">
-              Need help with a similar problem?
-            </h2>
-            <p className="interior-copy">
-              Start with a concrete ask, or book a call if you want to talk
-              through scope first.
-            </p>
-          </div>
-          <div className="cta-actions">
-            <Link to="/quote/" className="theme-btn-primary">
-              Get a quote
-            </Link>
-            <a
-              href={contactData.meetingLink}
-              className="text-link-cta link-underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Book a call
-            </a>
-          </div>
-        </section>
         <section className="comments-section">
           <h3 className="interior-section-title">Comments</h3>
           <GiscusComments slug={slug} />
