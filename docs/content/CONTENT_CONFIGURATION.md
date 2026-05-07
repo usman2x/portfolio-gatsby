@@ -72,6 +72,24 @@ Recommended later split:
 - preview metadata and structured case-study sections in JSON
 - full case study content in Markdown or separate JSON per project
 
+Suggested case-study section block model:
+
+- `sections[].title`
+- `sections[].tone`
+- `sections[].blocks`
+
+Suggested supported blocks:
+
+- `text`
+- `list`
+- `image`
+
+Suggested image-block fields:
+
+- `image`
+- `caption`
+- `alt`
+
 ### Writings
 
 - existing blog Markdown is already the correct pattern:

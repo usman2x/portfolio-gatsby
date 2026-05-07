@@ -188,6 +188,7 @@ Should answer:
 Rule:
 
 - Keep this readable and outcome-oriented, not just technical narration.
+- Detail sections may mix narrative text, arrow-list points, and optional image figures with captions.
 
 ## 5. Role and Responsibilities
 
@@ -368,13 +369,27 @@ Recommended frontmatter for case study Markdown:
 Suggested structured JSON fields for case-study details:
 
 - `summary`
-- `problem`
-- `solution`
-- `role`
-- `responsibilities`
-- `results`
+- `sections`
 - `link`
 - `linkLabel`
+
+Suggested section structure:
+
+- `title`
+- `tone`
+- `blocks`
+
+Supported block types:
+
+- `text`
+- `list`
+- `image`
+
+Suggested image-block fields:
+
+- `image`
+- `caption`
+- `alt`
 
 ## Candidate Starting Case Studies from Current Repo Content
 

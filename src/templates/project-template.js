@@ -6,18 +6,63 @@ import contactData from "../content/misc/contact-data.json"
 import projectDetailContent from "../content/pages/project-detail.json"
 import ProjectVisual from "../components/ProjectVisual"
 
+const renderSectionBlock = (block, projectTitle) => {
+  if (block.type === "text") {
+    return (
+      <p key={block.content} className="project-story-copy">
+        {block.content}
+      </p>
+    )
+  }
+
+  if (block.type === "list") {
+    return (
+      <ul
+        key={block.items.join("|")}
+        className="project-arrow-list"
+        aria-label={block.label || undefined}
+      >
+        {block.items.map(item => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    )
+  }
+
+  if (block.type === "image" && block.image) {
+    return (
+      <figure
+        key={`${block.image}-${block.caption || ""}`}
+        className="project-story-figure"
+      >
+        <ProjectVisual
+          image={block.image}
+          alt={block.alt || `${projectTitle} visual reference`}
+          title={projectTitle}
+          className="project-story-media"
+        />
+        {block.caption ? (
+          <figcaption className="project-story-caption">
+            {block.caption}
+          </figcaption>
+        ) : null}
+      </figure>
+    )
+  }
+
+  return null
+}
+
 const ProjectTemplate = ({ pageContext }) => {
   const { project, previousProject, nextProject } = pageContext
-  const { navigation, sections, link: linkContent, cta } = projectDetailContent
-  const responsibilities = project.responsibilities || []
-  const results = project.results || []
+  const { navigation, meta, link: linkContent, cta } = projectDetailContent
   const projectLinkLabel = project.linkLabel || linkContent.defaultLabel
 
   return (
     <Layout>
       <SEO
         title={`${project.title} | Project Case Study`}
-        description={project.summary || project.problem || project.description}
+        description={project.summary || project.description}
         pathname={`/projects/${project.slug}/`}
       />
       <section className="container interior-page project-template-shell">
@@ -32,106 +77,55 @@ const ProjectTemplate = ({ pageContext }) => {
             <h1 className="project-case-study-title">{project.title}</h1>
             <p className="project-case-study-summary">{project.summary}</p>
           </div>
-          <ProjectVisual
-            image={project.image}
-            alt={`${project.title} project preview`}
-            title={project.title}
-            className="project-detail-media"
-          />
-        </section>
 
-        <section className="project-story-section project-story-section-soft">
-          <div className="project-story-heading">
-            <h2 className="project-story-title">{sections.stack}</h2>
-          </div>
-          <div className="project-story-content">
-            <div className="preview-tag-list project-detail-tag-list">
-              {(project.tags || []).map(tag => (
-                <span key={tag} className="tag-chip">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {project.problem ? (
-          <section className="project-story-section">
-            <div className="project-story-heading">
-              <h2 className="project-story-title">{sections.problem}</h2>
-            </div>
-            <div className="project-story-content">
-              <p className="project-story-copy">{project.problem}</p>
-            </div>
-          </section>
-        ) : null}
-
-        {project.solution || project.description ? (
-          <section className="project-story-section project-story-section-soft">
-            <div className="project-story-heading">
-              <h2 className="project-story-title">{sections.solution}</h2>
-            </div>
-            <div className="project-story-content">
-              <p className="project-story-copy">
-                {project.solution || project.description}
-              </p>
-            </div>
-          </section>
-        ) : null}
-
-        {project.role || responsibilities.length ? (
-          <section className="project-story-section">
-            <div className="project-story-heading">
-              <h2 className="project-story-title">{sections.role}</h2>
-            </div>
-            <div className="project-story-content">
-              {project.role ? (
-                <p className="project-role-lead">{project.role}</p>
-              ) : null}
-              {responsibilities.length ? (
-                <ul className="project-story-list">
-                  {responsibilities.map(item => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              ) : null}
-            </div>
-          </section>
-        ) : null}
-
-        {results.length ? (
-          <section className="project-story-section project-story-section-soft">
-            <div className="project-story-heading">
-              <h2 className="project-story-title">{sections.results}</h2>
-            </div>
-            <div className="project-story-content">
-              <ul className="project-story-list project-results-list">
-                {results.map(item => (
-                  <li key={item}>{item}</li>
+          <aside className="project-case-study-meta">
+            <div className="project-case-study-meta-card">
+              <p className="project-case-study-meta-title">{meta.stack}</p>
+              <div className="preview-tag-list project-detail-tag-list">
+                {(project.tags || []).map(tag => (
+                  <span key={tag} className="tag-chip">
+                    {tag}
+                  </span>
                 ))}
-              </ul>
+              </div>
             </div>
-          </section>
-        ) : null}
 
-        {project.link ? (
-          <section className="project-story-section">
+            {project.link ? (
+              <div className="project-case-study-meta-card">
+                <p className="project-case-study-meta-title">{meta.link}</p>
+                <p className="project-case-study-meta-copy">
+                  {linkContent.description}
+                </p>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-link-cta link-underline project-reference-link"
+                >
+                  {projectLinkLabel}
+                </a>
+              </div>
+            ) : null}
+          </aside>
+        </section>
+
+        {(project.sections || []).map((section, index) => (
+          <section
+            key={`${project.slug}-${section.title}-${index}`}
+            className={`project-story-section ${
+              section.tone === "soft" ? "project-story-section-soft" : ""
+            }`}
+          >
             <div className="project-story-heading">
-              <h2 className="project-story-title">{sections.link}</h2>
+              <h2 className="project-story-title">{section.title}</h2>
             </div>
-            <div className="project-story-content project-story-link-block">
-              <p className="project-story-copy">{linkContent.description}</p>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-link-cta link-underline project-reference-link"
-              >
-                {projectLinkLabel}
-              </a>
+            <div className="project-story-content">
+              {(section.blocks || []).map(block =>
+                renderSectionBlock(block, project.title)
+              )}
             </div>
           </section>
-        ) : null}
+        ))}
 
         <div className="project-cta-transition" aria-hidden="true">
           <span className="project-cta-transition-label">

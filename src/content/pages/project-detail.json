@@ -2,12 +2,8 @@
   "navigation": {
     "backLabel": "Back to all projects"
   },
-  "sections": {
+  "meta": {
     "stack": "Tech stack",
-    "problem": "The problem",
-    "solution": "The solution",
-    "role": "Role and responsibilities",
-    "results": "Results we achieved",
     "link": "Project link"
   },
   "link": {
